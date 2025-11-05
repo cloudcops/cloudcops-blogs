@@ -1,0 +1,122 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+
+@layer base {
+  :root {
+    --background: 232 64% 3.5%;
+    --foreground: 220 70% 96%;
+    --card: 231 52% 6.5%;
+    --card-foreground: 220 70% 96%;
+    --popover: 231 52% 6.5%;
+    --popover-foreground: 220 70% 96%;
+    --primary: 210 88% 62%;
+    --primary-foreground: 0 0% 100%;
+    --secondary: 231 38% 11%;
+    --secondary-foreground: 220 65% 92%;
+    --muted: 231 28% 14%;
+    --muted-foreground: 222 25% 70%;
+    --accent: 208 82% 56%;
+    --accent-foreground: 222 78% 7%;
+    --destructive: 355 80% 52%;
+    --destructive-foreground: 0 0% 100%;
+    --border: 232 30% 12%;
+    --input: 232 30% 12%;
+    --ring: 210 88% 62%;
+    --chart-1: 210 88% 62%;
+    --chart-2: 208 82% 56%;
+    --chart-3: 279 72% 64%;
+    --chart-4: 30 88% 58%;
+    --chart-5: 348 78% 60%;
+    --radius: 0.75rem
+  }
+  .dark {
+    --background: 232 64% 3%;
+    --foreground: 220 70% 96%;
+    --card: 231 52% 6%;
+    --card-foreground: 220 70% 96%;
+    --popover: 231 52% 6%;
+    --popover-foreground: 220 70% 96%;
+    --primary: 210 88% 62%;
+    --primary-foreground: 0 0% 0%;
+    --secondary: 231 38% 11%;
+    --secondary-foreground: 220 65% 92%;
+    --muted: 231 28% 13%;
+    --muted-foreground: 222 25% 68%;
+    --accent: 208 82% 56%;
+    --accent-foreground: 222 78% 7%;
+    --destructive: 355 80% 52%;
+    --destructive-foreground: 0 0% 100%;
+    --border: 232 30% 12%;
+    --input: 232 30% 12%;
+    --ring: 210 88% 62%;
+    --chart-1: 210 88% 62%;
+    --chart-2: 208 82% 56%;
+    --chart-3: 279 72% 64%;
+    --chart-4: 30 88% 58%;
+    --chart-5: 348 78% 60%;
+  }
+}
+
+
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground;
+    background-image: radial-gradient(circle at 12% 12%, rgba(33, 64, 185, 0.22), transparent 52%), radial-gradient(circle at 90% 8%, rgba(12, 34, 104, 0.2), transparent 48%), linear-gradient(180deg, rgba(4, 7, 18, 0.98), rgba(2, 4, 10, 1));
+    background-attachment: fixed;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4 {
+    @apply scroll-m-20 font-semibold tracking-tight;
+  }
+
+  h1 {
+    @apply text-3xl md:text-4xl;
+  }
+
+  h2 {
+    @apply text-2xl md:text-3xl;
+  }
+
+  h3 {
+    @apply text-xl md:text-2xl;
+  }
+
+  p {
+    @apply leading-7;
+  }
+
+  pre {
+    @apply my-6 overflow-x-auto rounded-lg border border-white/10 bg-secondary/80 p-4 shadow-[0_18px_45px_rgba(8,10,26,0.45)];
+  }
+
+  code {
+    @apply text-sm;
+    font-family: var(--font-geist-mono);
+  }
+
+  blockquote {
+    @apply my-6 border-l-4 border-primary/50 bg-primary/5 pl-4 italic text-muted-foreground;
+  }
+
+  ul {
+    @apply my-4 ml-6 list-disc space-y-1;
+  }
+
+  img {
+    @apply rounded-lg;
+  }
+
+  a {
+    @apply text-primary underline-offset-4 transition hover:text-accent hover:underline;
+  }
+}
