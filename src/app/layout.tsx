@@ -31,16 +31,16 @@ export default function RootLayout({
         <div className="flex min-h-screen flex-col">
           <SiteHeader />
           <main className="flex-1">
-            <div className="mx-auto w-full max-w-6xl px-6 py-12">
-              <div className="relative overflow-hidden rounded-3xl border border-white/8 bg-secondary/40 p-[1.5px] shadow-[0_55px_150px_rgba(2,5,15,0.72)]">
-                <div className="absolute inset-0 rounded-[calc(1.5rem-1.5px)] bg-gradient-to-br from-primary/18 via-transparent to-[#050a17d9] opacity-80 blur-3xl" />
-                <div className="relative rounded-[calc(1.5rem-3px)] border border-white/6 bg-card/90 px-6 py-10">
+            <div className="mx-auto w-full max-w-6xl px-4 py-6 md:px-6 md:py-12">
+              <div className="relative overflow-hidden rounded-2xl border border-white/8 bg-secondary/40 p-[1.5px] shadow-[0_55px_150px_rgba(2,5,15,0.72)] md:rounded-3xl">
+                <div className="absolute inset-0 rounded-[calc(1rem-1.5px)] bg-gradient-to-br from-primary/18 via-transparent to-[#050a17d9] opacity-80 blur-3xl md:rounded-[calc(1.5rem-1.5px)]" />
+                <div className="relative rounded-[calc(1rem-3px)] border border-white/6 bg-card/90 px-4 py-6 md:rounded-[calc(1.5rem-3px)] md:px-6 md:py-10">
                   {children}
                 </div>
               </div>
             </div>
           </main>
-          <footer className="border-t border-white/10 py-6 text-center text-sm text-muted-foreground">
+          <footer className="border-t border-white/10 py-6 text-center text-xs text-muted-foreground md:text-sm">
             © {new Date().getFullYear()} CloudCops. All rights reserved.
           </footer>
         </div>
