@@ -22,7 +22,7 @@ export function ResourceContent({ content }: ResourceContentProps) {
       return node.map(extractText).join("");
     }
     if (isValidElement(node)) {
-      return extractText(node.props.children);
+      return extractText((node.props as { children?: ReactNode }).children);
     }
     return "";
   }
@@ -33,7 +33,7 @@ export function ResourceContent({ content }: ResourceContentProps) {
     const childArray = Children.toArray(props.children);
     const codeElement = childArray.find((child) => isValidElement(child));
     const codeText = isValidElement(codeElement)
-      ? extractText(codeElement.props.children)
+      ? extractText((codeElement.props as { children?: ReactNode }).children)
       : "";
 
     async function handleCopy() {
@@ -80,7 +80,7 @@ export function ResourceContent({ content }: ResourceContentProps) {
         img: ({ src, alt }) => {
           const fallback = "/images/placeholder.png";
           const resolvedSrc =
-            (src
+            (src && typeof src === "string"
               ? src.replace(/^(\.\.\/)+public\//, "/")
               : undefined) ?? fallback;
           return (
