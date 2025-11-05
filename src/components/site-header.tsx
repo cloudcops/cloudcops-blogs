@@ -107,7 +107,7 @@ export function SiteHeader() {
                   onClick={() => setMobileMenuOpen(false)}
                   className={cn(
                     "rounded-md px-4 py-3 text-sm font-medium transition-colors hover:bg-white/5 hover:text-white",
-                    isActive ? "text-white bg-white/10" : "text-muted-foreground/80",
+                    isActive ? "bg-white/10 text-white" : "text-muted-foreground/80",
                   )}
                 >
                   {link.label}
