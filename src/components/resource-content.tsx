@@ -93,7 +93,7 @@ export function ResourceContent({ content }: ResourceContentProps) {
                 if (event.currentTarget.src.endsWith("placeholder.png")) return;
                 event.currentTarget.src = fallback;
               }}
-              className="my-4 block w-full rounded-lg md:my-6"
+              className="my-4 block w-full max-w-2xl rounded-lg md:my-6"
             />
           );
         },
