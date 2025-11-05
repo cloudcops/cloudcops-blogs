@@ -57,17 +57,17 @@ export default async function BlogPage(props: BlogPageProps) {
   }
 
   return (
-    <article className="space-y-8">
-      <div className="space-y-4">
-        <p className="text-sm text-muted-foreground">
+    <article className="space-y-6 md:space-y-8">
+      <div className="space-y-3 md:space-y-4">
+        <p className="text-xs text-muted-foreground md:text-sm">
           <Link href="/blogs" className="underline-offset-4 hover:underline">
             ← Back to blogs
           </Link>
         </p>
-        <h1 className="bg-gradient-to-r from-primary via-accent to-primary/60 bg-clip-text text-4xl font-semibold leading-tight text-transparent md:text-5xl md:leading-[1.18]">
+        <h1 className="bg-gradient-to-r from-primary via-accent to-primary/60 bg-clip-text text-3xl font-semibold leading-tight text-transparent md:text-5xl md:leading-[1.18]">
           {resource.title ?? "Untitled resource"}
         </h1>
-        <p className="text-sm text-muted-foreground">
+        <p className="text-xs text-muted-foreground md:text-sm">
           {formatDate(resource.date)}
           {resource.author?.name ? (
             <>
@@ -85,12 +85,12 @@ export default async function BlogPage(props: BlogPageProps) {
             </>
           ) : null}
         </p>
-        <div className="flex flex-wrap gap-2">
+        <div className="flex flex-wrap gap-1.5 md:gap-2">
           {resource.tags.map((tag) => (
             <Badge
               key={tag}
               variant="secondary"
-              className="border border-primary/30 bg-primary/15 text-primary"
+              className="border border-primary/30 bg-primary/15 text-xs text-primary md:text-sm"
             >
               {tag}
             </Badge>

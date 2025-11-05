@@ -47,26 +47,26 @@ export function ResourceContent({ content }: ResourceContentProps) {
     }
 
     return (
-      <div className="group relative my-6">
+      <div className="group relative my-4 md:my-6">
         <button
           type="button"
           onClick={handleCopy}
-          className="absolute right-3 top-3 flex items-center gap-1 rounded-md border border-white/15 bg-black/30 px-2.5 py-1.5 text-xs font-medium text-white/80 backdrop-blur transition hover:border-white/30 hover:text-white"
+          className="absolute right-2 top-2 z-10 flex items-center gap-1 rounded-md border border-white/15 bg-black/30 px-2 py-1.5 text-xs font-medium text-white/80 backdrop-blur transition hover:border-white/30 hover:text-white md:right-3 md:top-3 md:px-2.5"
           aria-label={copied ? "Code copied" : "Copy code"}
         >
           {copied ? (
             <>
-              <Check className="h-3.5 w-3.5" />
-              Copied
+              <Check className="h-3 w-3 md:h-3.5 md:w-3.5" />
+              <span className="hidden sm:inline">Copied</span>
             </>
           ) : (
             <>
-              <Copy className="h-3.5 w-3.5" />
-              Copy
+              <Copy className="h-3 w-3 md:h-3.5 md:w-3.5" />
+              <span className="hidden sm:inline">Copy</span>
             </>
           )}
         </button>
-        <pre {...props} className={`${props.className ?? ""} my-0 overflow-x-auto rounded-lg border border-white/10 bg-secondary/80 p-4 shadow-[0_18px_45px_rgba(8,10,26,0.45)]`} />
+        <pre {...props} className={`${props.className ?? ""} my-0 overflow-x-auto rounded-lg border border-white/10 bg-secondary/80 p-3 text-xs shadow-[0_18px_45px_rgba(8,10,26,0.45)] md:p-4 md:text-sm`} />
       </div>
     );
   }
@@ -93,7 +93,7 @@ export function ResourceContent({ content }: ResourceContentProps) {
                 if (event.currentTarget.src.endsWith("placeholder.png")) return;
                 event.currentTarget.src = fallback;
               }}
-              className="my-6 block w-full max-w-2xl"
+              className="my-4 block w-full rounded-lg md:my-6"
             />
           );
         },
