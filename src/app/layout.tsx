@@ -14,8 +14,36 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "CloudCops Resources",
-  description: "Blogs and case studies powered by CloudCops.",
+  title: {
+    default: "CloudCops Blog",
+    template: "%s | CloudCops Blog",
+  },
+  description: "Technical blogs, tutorials, and resources about cloud computing, DevOps, and infrastructure management by CloudCops.",
+  metadataBase: new URL("https://resources.cloudcops.com"),
+  openGraph: {
+    title: "CloudCops Blog",
+    description: "Technical blogs, tutorials, and resources about cloud computing, DevOps, and infrastructure management.",
+    url: "https://resources.cloudcops.com",
+    siteName: "CloudCops Blog",
+    locale: "en_US",
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "CloudCops Blog",
+    description: "Technical blogs, tutorials, and resources about cloud computing, DevOps, and infrastructure management.",
+  },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      "max-video-preview": -1,
+      "max-image-preview": "large",
+      "max-snippet": -1,
+    },
+  },
 };
 
 export default function RootLayout({
