@@ -1,5 +1,5 @@
 ---
-title: "CloudCops'' Confidence: Why Zero Downtime Isn''t Optional Anymore"
+title: "CloudCops' Confidence: Why Zero Downtime Isn't Optional Anymore"
 description: "Learn why three seconds of delay loses half your visitors, how one hour of downtime can cost millions, and how CloudCops builds infrastructure that stays up when it matters most."
 date: "2025-11-06"
 tags: [Kubernetes, GitOps, SRE]
