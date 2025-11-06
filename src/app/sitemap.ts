@@ -1,11 +1,14 @@
 import { MetadataRoute } from "next";
 import { getResourcesByType } from "@/lib/resources";
 
+const POSTS_PER_PAGE = 12;
+
 export default function sitemap(): MetadataRoute.Sitemap {
   const baseUrl = "https://resources.cloudcops.com";
 
   // Get all blog posts
   const blogs = getResourcesByType("blogs");
+  const totalPages = Math.ceil(blogs.length / POSTS_PER_PAGE);
 
   // Create sitemap entries for blog posts
   const blogEntries: MetadataRoute.Sitemap = blogs.map((blog) => ({
@@ -15,6 +18,20 @@ export default function sitemap(): MetadataRoute.Sitemap {
     priority: 0.8,
   }));
 
+  // Create sitemap entries for paginated blog listing pages
+  const paginatedPages: MetadataRoute.Sitemap = Array.from(
+    { length: totalPages },
+    (_, i) => {
+      const page = i + 1;
+      return {
+        url: page === 1 ? `${baseUrl}/blogs` : `${baseUrl}/blogs?page=${page}`,
+        lastModified: new Date(),
+        changeFrequency: "daily",
+        priority: page === 1 ? 0.9 : 0.7,
+      };
+    }
+  );
+
   // Static pages
   const staticPages: MetadataRoute.Sitemap = [
     {
@@ -23,13 +40,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
       changeFrequency: "daily",
       priority: 1.0,
     },
-    {
-      url: `${baseUrl}/blogs`,
-      lastModified: new Date(),
-      changeFrequency: "daily",
-      priority: 0.9,
-    },
   ];
 
-  return [...staticPages, ...blogEntries];
+  return [...staticPages, ...paginatedPages, ...blogEntries];
 }

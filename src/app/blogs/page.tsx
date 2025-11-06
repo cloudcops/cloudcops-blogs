@@ -1,15 +1,47 @@
 import { Alert, AlertDescription, AlertTitle } from "@/components/ui/alert";
 import { ResourceList } from "@/components/resource-list";
 import { getResourcesByType } from "@/lib/resources";
+import type { Metadata } from "next";
 
-export const metadata = {
-  title: "Blogs | CloudCops Resources",
-  description: "Browse CloudCops blog articles focused on DevOps excellence.",
+const POSTS_PER_PAGE = 12;
+
+type BlogsPageProps = {
+  searchParams: Promise<{ page?: string }>;
 };
 
-export default function BlogsPage() {
-  const blogs = getResourcesByType("blogs");
-  const affected = blogs.filter(
+export async function generateMetadata(
+  props: BlogsPageProps
+): Promise<Metadata> {
+  const searchParams = await props.searchParams;
+  const page = Number(searchParams.page) || 1;
+
+  if (page === 1) {
+    return {
+      title: "Blogs",
+      description: "Browse CloudCops blog articles focused on DevOps excellence.",
+    };
+  }
+
+  return {
+    title: `Blogs - Page ${page}`,
+    description: `Browse CloudCops blog articles focused on DevOps excellence. Page ${page}`,
+  };
+}
+
+export default async function BlogsPage(props: BlogsPageProps) {
+  const searchParams = await props.searchParams;
+  const currentPage = Number(searchParams.page) || 1;
+
+  const allBlogs = getResourcesByType("blogs");
+  const totalBlogs = allBlogs.length;
+  const totalPages = Math.ceil(totalBlogs / POSTS_PER_PAGE);
+
+  // Calculate pagination
+  const startIndex = (currentPage - 1) * POSTS_PER_PAGE;
+  const endIndex = startIndex + POSTS_PER_PAGE;
+  const paginatedBlogs = allBlogs.slice(startIndex, endIndex);
+
+  const affected = paginatedBlogs.filter(
     (resource) => resource.missingRequired.length > 0,
   );
 
@@ -33,7 +65,14 @@ export default function BlogsPage() {
           </AlertDescription>
         </Alert>
       ) : null}
-      <ResourceList resources={blogs} emptyState="No blog posts yet." />
+      <ResourceList
+        resources={paginatedBlogs}
+        emptyState="No blog posts yet."
+        currentPage={currentPage}
+        totalPages={totalPages}
+        totalResults={totalBlogs}
+        baseUrl="/blogs"
+      />
     </div>
   );
 }

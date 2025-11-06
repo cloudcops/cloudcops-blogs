@@ -6,12 +6,17 @@ import { Search } from "lucide-react";
 import { Input } from "@/components/ui/input";
 import { Card, CardHeader, CardTitle, CardDescription, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
+import { Pagination } from "@/components/pagination";
 import { cn } from "@/lib/utils";
 import type { Resource } from "@/lib/resources";
 
 type ResourceListProps = {
   resources: Resource[];
   emptyState?: string;
+  currentPage?: number;
+  totalPages?: number;
+  totalResults?: number;
+  baseUrl?: string;
 };
 
 function formatDate(value?: string) {
@@ -25,7 +30,14 @@ function formatDate(value?: string) {
   }).format(date);
 }
 
-export function ResourceList({ resources, emptyState }: ResourceListProps) {
+export function ResourceList({
+  resources,
+  emptyState,
+  currentPage = 1,
+  totalPages = 1,
+  totalResults,
+  baseUrl = "/blogs",
+}: ResourceListProps) {
   const [query, setQuery] = useState("");
 
   const filtered = useMemo(() => {
@@ -47,17 +59,37 @@ export function ResourceList({ resources, emptyState }: ResourceListProps) {
     });
   }, [query, resources]);
 
+  const showPagination = totalPages > 1 && !query.trim();
+  const startResult = (currentPage - 1) * resources.length + 1;
+  const endResult = startResult + filtered.length - 1;
+
   return (
     <div className="space-y-6">
-      <div className="relative">
-        <Search className="absolute left-3 top-1/2 h-4 w-4 -translate-y-1/2 text-primary/80" />
-        <Input
-          value={query}
-          onChange={(event) => setQuery(event.target.value)}
-          placeholder="Search by title, tags, or content..."
-          className="pl-10 border-white/8 bg-background/50 text-foreground placeholder:text-muted-foreground/60 focus-visible:ring-primary/60"
-        />
+      <div className="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
+        <div className="relative flex-1 sm:max-w-md">
+          <Search className="absolute left-3 top-1/2 h-4 w-4 -translate-y-1/2 text-primary/80" />
+          <Input
+            value={query}
+            onChange={(event) => setQuery(event.target.value)}
+            placeholder="Search by title, tags, or content..."
+            className="pl-10 border-white/8 bg-background/50 text-foreground placeholder:text-muted-foreground/60 focus-visible:ring-primary/60"
+          />
+        </div>
+        {totalResults && !query.trim() && (
+          <p className="text-sm text-muted-foreground">
+            Showing {startResult}-{endResult} of {totalResults} posts
+          </p>
+        )}
       </div>
+
+      {showPagination && (
+        <Pagination
+          currentPage={currentPage}
+          totalPages={totalPages}
+          baseUrl={baseUrl}
+        />
+      )}
+
       {filtered.length === 0 ? (
         <p className="text-sm text-muted-foreground">
           {emptyState ?? "No resources found. Try another keyword."}
@@ -130,6 +162,14 @@ export function ResourceList({ resources, emptyState }: ResourceListProps) {
             </Card>
           ))}
         </div>
+      )}
+
+      {showPagination && (
+        <Pagination
+          currentPage={currentPage}
+          totalPages={totalPages}
+          baseUrl={baseUrl}
+        />
       )}
     </div>
   );
