@@ -1,0 +1,181 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 700" font-family="'Inter', 'Segoe UI', system-ui, -apple-system, sans-serif">
+  <defs>
+    <linearGradient id="bgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#0a0a1a;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#111128;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="redGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#2a1520;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#1a0d15;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="greenGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#0d2a1a;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#0a1a12;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="arrowGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#6366f1;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#8b5cf6;stop-opacity:1" />
+    </linearGradient>
+    <filter id="glow">
+      <feGaussianBlur stdDeviation="3" result="coloredBlur"/>
+      <feMerge>
+        <feMergeNode in="coloredBlur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+    <filter id="softShadow">
+      <feDropShadow dx="0" dy="2" stdDeviation="4" flood-color="#000" flood-opacity="0.3"/>
+    </filter>
+  </defs>
+
+  <!-- Background -->
+  <rect width="1200" height="700" fill="url(#bgGrad)" rx="12"/>
+
+  <!-- Title -->
+  <text x="600" y="45" text-anchor="middle" fill="#e2e8f0" font-size="22" font-weight="700" letter-spacing="0.5">Apache Kafka Migration: VMs to Kubernetes (AKS)</text>
+  <text x="600" y="68" text-anchor="middle" fill="#64748b" font-size="13">Enterprise Migration Pattern — CloudCops GmbH</text>
+
+  <!-- BEFORE Section -->
+  <rect x="30" y="90" width="530" height="560" rx="12" fill="url(#redGrad)" stroke="#ef444433" stroke-width="1.5" filter="url(#softShadow)"/>
+  <rect x="30" y="90" width="530" height="42" rx="12" fill="#ef444418"/>
+  <rect x="30" y="120" width="530" height="12" fill="#ef444418"/>
+  <circle cx="54" cy="111" r="8" fill="#ef4444" opacity="0.8"/>
+  <text x="72" y="116" fill="#fca5a5" font-size="15" font-weight="700" letter-spacing="1">BEFORE — Legacy VM Architecture</text>
+
+  <!-- Ansible Controller -->
+  <rect x="60" y="150" width="200" height="50" rx="8" fill="#1e1b2e" stroke="#f59e0b55" stroke-width="1"/>
+  <text x="100" y="172" fill="#fbbf24" font-size="11" font-weight="600">ANSIBLE CONTROLLER</text>
+  <text x="100" y="187" fill="#94a3b8" font-size="10">Manual provisioning &amp; config</text>
+  <rect x="64" y="158" width="24" height="24" rx="4" fill="#f59e0b22"/>
+  <text x="76" y="175" text-anchor="middle" fill="#f59e0b" font-size="13">A</text>
+
+  <!-- VM 1 - Kafka Broker -->
+  <rect x="60" y="220" width="230" height="105" rx="8" fill="#1e1b2e" stroke="#64748b44" stroke-width="1"/>
+  <rect x="60" y="220" width="230" height="30" rx="8" fill="#1e293b"/>
+  <rect x="60" y="242" width="230" height="8" fill="#1e293b"/>
+  <text x="80" y="241" fill="#94a3b8" font-size="11" font-weight="600">VM 1 — Kafka Broker</text>
+  <rect x="75" y="260" width="200" height="24" rx="4" fill="#0f172a" stroke="#64748b33" stroke-width="0.5"/>
+  <text x="85" y="276" fill="#cbd5e1" font-size="10">Kafka 2.x + Zookeeper</text>
+  <rect x="75" y="290" width="200" height="24" rx="4" fill="#0f172a" stroke="#64748b33" stroke-width="0.5"/>
+  <text x="85" y="306" fill="#cbd5e1" font-size="10">Static config, manual scaling</text>
+
+  <!-- VM 2 - Kafka Broker -->
+  <rect x="310" y="220" width="230" height="105" rx="8" fill="#1e1b2e" stroke="#64748b44" stroke-width="1"/>
+  <rect x="310" y="220" width="230" height="30" rx="8" fill="#1e293b"/>
+  <rect x="310" y="242" width="230" height="8" fill="#1e293b"/>
+  <text x="330" y="241" fill="#94a3b8" font-size="11" font-weight="600">VM 2 — Kafka Broker</text>
+  <rect x="325" y="260" width="200" height="24" rx="4" fill="#0f172a" stroke="#64748b33" stroke-width="0.5"/>
+  <text x="335" y="276" fill="#cbd5e1" font-size="10">Kafka 2.x + Zookeeper</text>
+  <rect x="325" y="290" width="200" height="24" rx="4" fill="#0f172a" stroke="#64748b33" stroke-width="0.5"/>
+  <text x="335" y="306" fill="#cbd5e1" font-size="10">No self-healing</text>
+
+  <!-- VM 3 - NGINX -->
+  <rect x="60" y="345" width="230" height="75" rx="8" fill="#1e1b2e" stroke="#64748b44" stroke-width="1"/>
+  <rect x="60" y="345" width="230" height="30" rx="8" fill="#1e293b"/>
+  <rect x="60" y="367" width="230" height="8" fill="#1e293b"/>
+  <text x="80" y="366" fill="#94a3b8" font-size="11" font-weight="600">VM 3 — NGINX Reverse Proxy</text>
+  <rect x="75" y="385" width="200" height="24" rx="4" fill="#0f172a" stroke="#64748b33" stroke-width="0.5"/>
+  <text x="85" y="401" fill="#cbd5e1" font-size="10">Static routing, manual cert mgmt</text>
+
+  <!-- VM 4 - Zookeeper Quorum -->
+  <rect x="310" y="345" width="230" height="75" rx="8" fill="#1e1b2e" stroke="#64748b44" stroke-width="1"/>
+  <rect x="310" y="345" width="230" height="30" rx="8" fill="#1e293b"/>
+  <rect x="310" y="367" width="230" height="8" fill="#1e293b"/>
+  <text x="330" y="366" fill="#94a3b8" font-size="11" font-weight="600">VM 4–6 — Zookeeper Quorum</text>
+  <rect x="325" y="385" width="200" height="24" rx="4" fill="#0f172a" stroke="#64748b33" stroke-width="0.5"/>
+  <text x="335" y="401" fill="#cbd5e1" font-size="10">3-node ensemble, single point of failure</text>
+
+  <!-- Pain Points -->
+  <rect x="60" y="440" width="480" height="100" rx="8" fill="#7f1d1d15" stroke="#ef444422" stroke-width="1"/>
+  <text x="80" y="462" fill="#fca5a5" font-size="11" font-weight="600">PAIN POINTS</text>
+  <text x="80" y="482" fill="#94a3b8" font-size="10.5">Manual scaling — no auto-recovery — Zookeeper operational overhead</text>
+  <text x="80" y="498" fill="#94a3b8" font-size="10.5">Ansible drift — no GitOps — secrets in config files</text>
+  <text x="80" y="514" fill="#94a3b8" font-size="10.5">VM patching burden — no centralized observability</text>
+  <text x="80" y="530" fill="#94a3b8" font-size="10.5">Environment inconsistency across dev/staging/prod</text>
+
+  <!-- Connections Before -->
+  <line x1="160" y1="200" x2="160" y2="220" stroke="#f59e0b44" stroke-width="1" stroke-dasharray="4,3"/>
+  <line x1="160" y1="200" x2="425" y2="220" stroke="#f59e0b44" stroke-width="1" stroke-dasharray="4,3"/>
+
+  <!-- AFTER Section -->
+  <rect x="640" y="90" width="530" height="560" rx="12" fill="url(#greenGrad)" stroke="#22c55e33" stroke-width="1.5" filter="url(#softShadow)"/>
+  <rect x="640" y="90" width="530" height="42" rx="12" fill="#22c55e18"/>
+  <rect x="640" y="120" width="530" height="12" fill="#22c55e18"/>
+  <circle cx="664" cy="111" r="8" fill="#22c55e" opacity="0.8"/>
+  <text x="682" y="116" fill="#86efac" font-size="15" font-weight="700" letter-spacing="1">AFTER — Kubernetes-Native (AKS)</text>
+
+  <!-- GitOps Layer -->
+  <rect x="670" y="150" width="480" height="50" rx="8" fill="#1e1b2e" stroke="#8b5cf655" stroke-width="1"/>
+  <text x="710" y="172" fill="#a78bfa" font-size="11" font-weight="600">GITOPS LAYER</text>
+  <text x="710" y="187" fill="#94a3b8" font-size="10">ArgoCD + GitHub Actions — declarative, auditable, automated</text>
+  <rect x="674" y="158" width="24" height="24" rx="4" fill="#8b5cf622"/>
+  <text x="686" y="175" text-anchor="middle" fill="#a78bfa" font-size="13">G</text>
+
+  <!-- AKS Cluster Box -->
+  <rect x="670" y="218" width="480" height="210" rx="10" fill="#0f172a55" stroke="#6366f133" stroke-width="1"/>
+  <text x="690" y="240" fill="#818cf8" font-size="12" font-weight="600">Azure Kubernetes Service (AKS)</text>
+
+  <!-- Kafka with KRaft -->
+  <rect x="690" y="255" width="215" height="75" rx="6" fill="#1e1b2e" stroke="#22c55e44" stroke-width="1"/>
+  <text x="710" y="275" fill="#86efac" font-size="11" font-weight="600">Kafka 3.x + KRaft</text>
+  <text x="710" y="292" fill="#94a3b8" font-size="10">No Zookeeper dependency</text>
+  <text x="710" y="308" fill="#94a3b8" font-size="10">Auto-scaling, self-healing pods</text>
+  <rect x="694" y="315" width="60" height="10" rx="3" fill="#22c55e22"/>
+  <text x="697" y="323" fill="#22c55e" font-size="7" font-weight="600">KRaft</text>
+
+  <!-- MirrorMaker2 -->
+  <rect x="920" y="255" width="215" height="75" rx="6" fill="#1e1b2e" stroke="#3b82f644" stroke-width="1"/>
+  <text x="940" y="275" fill="#93c5fd" font-size="11" font-weight="600">MirrorMaker2</text>
+  <text x="940" y="292" fill="#94a3b8" font-size="10">Cross-env replication</text>
+  <text x="940" y="308" fill="#94a3b8" font-size="10">Zero-downtime migration</text>
+
+  <!-- NGINX Ingress -->
+  <rect x="690" y="345" width="215" height="65" rx="6" fill="#1e1b2e" stroke="#06b6d444" stroke-width="1"/>
+  <text x="710" y="365" fill="#67e8f9" font-size="11" font-weight="600">NGINX Ingress Controller</text>
+  <text x="710" y="382" fill="#94a3b8" font-size="10">Dynamic routing, auto TLS</text>
+  <text x="710" y="397" fill="#94a3b8" font-size="10">cert-manager integration</text>
+
+  <!-- LinkerD mTLS -->
+  <rect x="920" y="345" width="215" height="65" rx="6" fill="#1e1b2e" stroke="#f472b644" stroke-width="1"/>
+  <text x="940" y="365" fill="#f9a8d4" font-size="11" font-weight="600">LinkerD — mTLS</text>
+  <text x="940" y="382" fill="#94a3b8" font-size="10">Service mesh encryption</text>
+  <text x="940" y="397" fill="#94a3b8" font-size="10">Zero-trust networking</text>
+
+  <!-- Security & Secrets Layer -->
+  <rect x="670" y="445" width="235" height="65" rx="8" fill="#1e1b2e" stroke="#f59e0b44" stroke-width="1"/>
+  <text x="690" y="465" fill="#fbbf24" font-size="11" font-weight="600">Security &amp; Secrets</text>
+  <text x="690" y="482" fill="#94a3b8" font-size="10">External Secrets → Azure Key Vault</text>
+  <text x="690" y="497" fill="#94a3b8" font-size="10">OPA Gatekeeper + RBAC-Manager</text>
+
+  <!-- Observability -->
+  <rect x="915" y="445" width="235" height="65" rx="8" fill="#1e1b2e" stroke="#22d3ee44" stroke-width="1"/>
+  <text x="935" y="465" fill="#67e8f9" font-size="11" font-weight="600">Observability Stack</text>
+  <text x="935" y="482" fill="#94a3b8" font-size="10">Prometheus + Grafana dashboards</text>
+  <text x="935" y="497" fill="#94a3b8" font-size="10">Alertmanager + custom alerts</text>
+
+  <!-- Backup -->
+  <rect x="670" y="525" width="235" height="50" rx="8" fill="#1e1b2e" stroke="#a78bfa44" stroke-width="1"/>
+  <text x="690" y="547" fill="#c4b5fd" font-size="11" font-weight="600">Backup &amp; DR</text>
+  <text x="690" y="562" fill="#94a3b8" font-size="10">Velero cluster backup/restore</text>
+
+  <!-- IaC -->
+  <rect x="915" y="525" width="235" height="50" rx="8" fill="#1e1b2e" stroke="#34d39944" stroke-width="1"/>
+  <text x="935" y="547" fill="#6ee7b7" font-size="11" font-weight="600">Infrastructure as Code</text>
+  <text x="935" y="562" fill="#94a3b8" font-size="10">Terraform + Terragrunt modules</text>
+
+  <!-- Benefits -->
+  <rect x="670" y="590" width="480" height="50" rx="8" fill="#14532d15" stroke="#22c55e22" stroke-width="1"/>
+  <text x="690" y="612" fill="#86efac" font-size="11" font-weight="600">RESULTS</text>
+  <text x="690" y="630" fill="#94a3b8" font-size="10.5">Fully automated GitOps — self-healing — zero-trust security — centralized observability — multi-env consistency</text>
+
+  <!-- GitOps arrows -->
+  <line x1="910" y1="200" x2="910" y2="218" stroke="#8b5cf644" stroke-width="1" stroke-dasharray="4,3"/>
+
+  <!-- Center Migration Arrow -->
+  <rect x="562" y="330" width="76" height="60" rx="30" fill="#6366f122" stroke="#6366f155" stroke-width="1"/>
+  <polygon points="600,340 615,360 600,355 585,360" fill="#818cf8" filter="url(#glow)"/>
+  <text x="600" y="378" text-anchor="middle" fill="#a5b4fc" font-size="9" font-weight="600">MIGRATE</text>
+
+  <!-- CloudCops Watermark -->
+  <text x="600" y="690" text-anchor="middle" fill="#334155" font-size="11" font-weight="500" letter-spacing="2">CLOUDCOPS.COM</text>
+</svg>
