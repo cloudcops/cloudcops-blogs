@@ -59,13 +59,15 @@ export function SiteFooter() {
             <h3 className="text-sm font-semibold text-foreground tracking-wider uppercase">Legal</h3>
             <ul className="space-y-3">
               <li>
-                <a href="https://cloudcops.de/impressum" className="text-sm text-muted-foreground transition-colors hover:text-primary" target="_blank" rel="noreferrer">Impressum</a>
+                <a href="https://cloudcops.com/en/imprint" className="text-sm text-muted-foreground transition-colors hover:text-primary" target="_blank" rel="noreferrer">Imprint</a>
               </li>
               <li>
-                <a href="https://cloudcops.de/datenschutz" className="text-sm text-muted-foreground transition-colors hover:text-primary" target="_blank" rel="noreferrer">Privacy Policy</a>
+                <a href="https://cloudcops.com/en/privacy-policy" className="text-sm text-muted-foreground transition-colors hover:text-primary" target="_blank" rel="noreferrer">Privacy Policy</a>
+              </li>
+              <li>
+                <a href="https://cloudcops.com/en/terms-conditions" className="text-sm text-muted-foreground transition-colors hover:text-primary" target="_blank" rel="noreferrer">Terms & Conditions</a>
               </li>
             </ul>
-          </div>
         </div>
 
         <div className="mt-16 flex flex-col items-center justify-between border-t border-white/10 pt-8 md:flex-row">

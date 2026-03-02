@@ -258,3 +258,6 @@ https://nextjs.org/telemetry
  GET /blogs/crowdsec-waf-kubernetes-implementation 200 in 40ms (compile: 1300µs, render: 39ms)
  GET /blogs/crowdsec-waf-kubernetes-implementation 200 in 26ms (compile: 3ms, render: 24ms)
  GET / 200 in 895ms (compile: 252ms, render: 643ms)
+ GET / 200 in 95ms (compile: 10ms, render: 85ms)
+ GET / 200 in 17ms (compile: 2ms, render: 15ms)
+ GET / 200 in 89ms (compile: 2ms, render: 87ms)
