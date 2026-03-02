@@ -2,7 +2,7 @@
 title: "Kubernetes Databases vs. Managed Services: Making the Right Choice for Your Business"
 description: "Learn when to run databases in Kubernetes and when managed services like AWS RDS make more sense. Based on real client implementations and production experience."
 date: "2025-11-10"
-image: "/images/k8s-db-cover.png"tags: [Kubernetes, Database, Cloud, DevOps]
+tags: [Kubernetes, Database, Cloud, DevOps]
 author:
   name: "Sejoon Kim"
   url: "https://www.linkedin.com/in/sejokimde/"

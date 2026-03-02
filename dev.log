@@ -45,3 +45,142 @@ https://nextjs.org/telemetry
  GET / 200 in 222ms (compile: 27ms, render: 195ms)
  GET /blogs 200 in 357ms (compile: 230ms, render: 127ms)
  ✓ Compiled in 287ms
+ GET / 200 in 521ms (compile: 154ms, render: 368ms)
+ GET /apple-touch-icon-precomposed.png 404 in 194ms (compile: 86ms, render: 108ms)
+ GET /apple-touch-icon.png 404 in 96ms (compile: 5ms, render: 92ms)
+ GET /blogs/crowdsec-waf-kubernetes-implementation 200 in 50ms (compile: 13ms, render: 37ms)
+ GET /blogs 200 in 182ms (compile: 75ms, render: 107ms)
+ GET /blogs 200 in 137ms (compile: 8ms, render: 130ms)
+ GET /blogs/crowdsec-waf-kubernetes-implementation 200 in 80ms (compile: 28ms, render: 51ms)
+ ✓ Compiled in 86ms
+ GET /blogs/crowdsec-waf-kubernetes-implementation 200 in 125ms (compile: 8ms, render: 117ms)
+ GET /blogs/crowdsec-waf-kubernetes-implementation 200 in 79ms (compile: 1747µs, render: 77ms)
+ GET /blogs/crowdsec-waf-kubernetes-implementation 200 in 206ms (compile: 87ms, render: 119ms)
+ ✓ Compiled in 78ms
+ ✓ Compiled in 72ms
+ GET / 200 in 390ms (compile: 168ms, render: 222ms)
+ ✓ Compiled in 223ms
+ GET /blogs/crowdsec-waf-kubernetes-implementation 200 in 315ms (compile: 241ms, render: 75ms)
+ GET / 200 in 347ms (compile: 106ms, render: 241ms)
+ GET / 200 in 104ms (compile: 1381µs, render: 102ms)
+ GET /blogs/crowdsec-waf-kubernetes-implementation 200 in 89ms (compile: 1509µs, render: 88ms)
+ GET / 200 in 58ms (compile: 6ms, render: 52ms)
+ GET /blogs/crowdsec-waf-kubernetes-implementation 200 in 29ms (compile: 3ms, render: 27ms)
+ GET / 200 in 353ms (compile: 13ms, render: 340ms)
+ GET / 200 in 108ms (compile: 14ms, render: 94ms)
+ GET / 200 in 70ms (compile: 1978µs, render: 68ms)
+ ✓ Compiled in 246ms
+ ⚠ Fast Refresh had to perform a full reload due to a runtime error.
+ ⨯ ReferenceError: Image is not defined
+    at CardArt (src/components/resource-list.tsx:93:12)
+  91 |       return (
+  92 |         <div className="absolute inset-0 w-full h-full bg-secondary/20">
+> 93 |           <Image
+     |            ^
+  94 |             src={image}
+  95 |             alt="Cover"
+  96 |             fill {
+  digest: '426761034'
+}
+ GET / 500 in 729ms (compile: 254ms, render: 475ms)
+ ⚠ Fast Refresh had to perform a full reload due to a runtime error.
+ ⨯ ReferenceError: Image is not defined
+    at CardArt (src/components/resource-list.tsx:93:12)
+  91 |       return (
+  92 |         <div className="absolute inset-0 w-full h-full bg-secondary/20">
+> 93 |           <Image
+     |            ^
+  94 |             src={image}
+  95 |             alt="Cover"
+  96 |             fill {
+  digest: '426761034'
+}
+ GET / 500 in 820ms (compile: 67ms, render: 754ms)
+ GET /blogs/crowdsec-waf-kubernetes-implementation 200 in 289ms (compile: 152ms, render: 137ms)
+ ⨯ ReferenceError: Image is not defined
+    at CardArt (src/components/resource-list.tsx:93:12)
+  91 |       return (
+  92 |         <div className="absolute inset-0 w-full h-full bg-secondary/20">
+> 93 |           <Image
+     |            ^
+  94 |             src={image}
+  95 |             alt="Cover"
+  96 |             fill {
+  digest: '426761034'
+}
+ GET / 500 in 105ms (compile: 13ms, render: 92ms)
+ ⨯ ReferenceError: Image is not defined
+    at CardArt (src/components/resource-list.tsx:93:12)
+  91 |       return (
+  92 |         <div className="absolute inset-0 w-full h-full bg-secondary/20">
+> 93 |           <Image
+     |            ^
+  94 |             src={image}
+  95 |             alt="Cover"
+  96 |             fill {
+  digest: '426761034'
+}
+ GET / 500 in 216ms (compile: 11ms, render: 205ms)
+ ⨯ ReferenceError: Image is not defined
+    at CardArt (src/components/resource-list.tsx:93:12)
+  91 |       return (
+  92 |         <div className="absolute inset-0 w-full h-full bg-secondary/20">
+> 93 |           <Image
+     |            ^
+  94 |             src={image}
+  95 |             alt="Cover"
+  96 |             fill {
+  digest: '426761034'
+}
+ GET / 500 in 50ms (compile: 1769µs, render: 48ms)
+ ⨯ ReferenceError: Image is not defined
+    at CardArt (src/components/resource-list.tsx:93:12)
+  91 |       return (
+  92 |         <div className="absolute inset-0 w-full h-full bg-secondary/20">
+> 93 |           <Image
+     |            ^
+  94 |             src={image}
+  95 |             alt="Cover"
+  96 |             fill {
+  digest: '426761034'
+}
+ GET / 500 in 57ms (compile: 4ms, render: 54ms)
+ ⨯ ReferenceError: Image is not defined
+    at CardArt (src/components/resource-list.tsx:93:12)
+  91 |       return (
+  92 |         <div className="absolute inset-0 w-full h-full bg-secondary/20">
+> 93 |           <Image
+     |            ^
+  94 |             src={image}
+  95 |             alt="Cover"
+  96 |             fill {
+  digest: '426761034'
+}
+ GET / 500 in 47ms (compile: 1321µs, render: 46ms)
+ ⨯ ReferenceError: Image is not defined
+    at CardArt (src/components/resource-list.tsx:93:12)
+  91 |       return (
+  92 |         <div className="absolute inset-0 w-full h-full bg-secondary/20">
+> 93 |           <Image
+     |            ^
+  94 |             src={image}
+  95 |             alt="Cover"
+  96 |             fill {
+  digest: '426761034'
+}
+ GET / 500 in 40ms (compile: 1420µs, render: 39ms)
+ ⨯ ReferenceError: Image is not defined
+    at CardArt (src/components/resource-list.tsx:93:12)
+  91 |       return (
+  92 |         <div className="absolute inset-0 w-full h-full bg-secondary/20">
+> 93 |           <Image
+     |            ^
+  94 |             src={image}
+  95 |             alt="Cover"
+  96 |             fill {
+  digest: '426761034'
+}
+ GET / 500 in 40ms (compile: 1409µs, render: 39ms)
+ ⚠ Fast Refresh had to perform a full reload due to a runtime error.
+ ✓ Compiled in 378ms
+ GET / 200 in 381ms (compile: 206ms, render: 175ms)

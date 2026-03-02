@@ -2,6 +2,7 @@
 
 import { useMemo, useState } from "react";
 import Link from "next/link";
+import Image from "next/image";
 import { Search, ArrowRight, Clock, User } from "lucide-react";
 import { Input } from "@/components/ui/input";
 import { Card, CardHeader, CardTitle, CardDescription, CardContent } from "@/components/ui/card";
@@ -86,13 +87,30 @@ export function ResourceList({
   const featuredPost = isFeaturedView && filtered.length > 0 ? filtered[0] : null;
   const gridPosts = isFeaturedView ? filtered.slice(1) : filtered;
 
-  const CardArt = ({ slug }: { slug: string }) => (
-    <div className={cn("absolute inset-0 bg-gradient-to-br opacity-80", getGradient(slug))}>
-      <div className="absolute inset-0 bg-[linear-gradient(to_right,#ffffff08_1px,transparent_1px),linear-gradient(to_bottom,#ffffff08_1px,transparent_1px)] bg-[size:24px_24px] mix-blend-overlay" />
-      <div className="absolute -bottom-12 -right-12 h-32 w-32 rounded-full bg-primary/20 blur-3xl" />
-      <div className="absolute top-4 left-4 h-16 w-16 rounded-full bg-accent/10 blur-2xl" />
-    </div>
-  );
+  const CardArt = ({ slug, image }: { slug: string; image?: string }) => {
+    if (image) {
+      return (
+        <div className="absolute inset-0 w-full h-full bg-secondary/20">
+          <Image
+            src={image}
+            alt="Cover"
+            fill
+            className="object-cover transition-transform duration-700 group-hover:scale-105"
+            sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+          />
+          <div className="absolute inset-0 bg-gradient-to-t from-background/80 via-transparent to-transparent opacity-80" />
+        </div>
+      );
+    }
+    
+    return (
+      <div className={cn("absolute inset-0 bg-gradient-to-br opacity-80 transition-transform duration-700 group-hover:scale-105", getGradient(slug))}>
+        <div className="absolute inset-0 bg-[linear-gradient(to_right,#ffffff08_1px,transparent_1px),linear-gradient(to_bottom,#ffffff08_1px,transparent_1px)] bg-[size:24px_24px] mix-blend-overlay" />
+        <div className="absolute -bottom-12 -right-12 h-32 w-32 rounded-full bg-primary/20 blur-3xl" />
+        <div className="absolute top-4 left-4 h-16 w-16 rounded-full bg-accent/10 blur-2xl" />
+      </div>
+    );
+  };
 
   return (
     <div className="space-y-10">
@@ -167,7 +185,7 @@ export function ResourceList({
               
               {/* Featured Art Left Side */}
               <div className="relative w-full md:w-2/5 min-h-[200px] md:min-h-full border-b md:border-b-0 md:border-r border-white/10 overflow-hidden shrink-0">
-                <CardArt slug={featuredPost.slug} />
+                <CardArt slug={featuredPost.slug} image={featuredPost.image} />
                 <div className="absolute top-4 left-4 z-10 pointer-events-none">
                   <Badge className="bg-background/80 backdrop-blur-md border border-white/10 text-white shadow-xl px-3 py-1 font-semibold uppercase tracking-wider text-[10px]">
                     Featured Article
@@ -230,8 +248,8 @@ export function ResourceList({
                   </Link>
 
                   {/* Card Art Header */}
-                  <div className="relative h-40 w-full overflow-hidden border-b border-white/5 shrink-0">
-                    <CardArt slug={resource.slug} />
+                  <div className="relative h-48 w-full overflow-hidden border-b border-white/5 shrink-0">
+                    <CardArt slug={resource.slug} image={resource.image} />
                   </div>
 
                   <CardContent className="flex flex-col flex-1 p-5 md:p-6">

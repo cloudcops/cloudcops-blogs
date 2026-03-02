@@ -2,7 +2,7 @@
 title: "Implementing CrowdSec WAF on Kubernetes: A Practical Guide"
 description: "How we implemented an open-source WAF solution for protecting public APIs, including PostgreSQL integration and troubleshooting real-world challenges"
 date: "2026-01-14"
-image: "/images/crowdsec-waf-cover.png"tags: [Kubernetes, Security, WAF, CrowdSec, PostgreSQL]
+tags: [Kubernetes, Security, WAF, CrowdSec, PostgreSQL]
 author:
   name: "Sejoon Kim"
   url: "https://www.linkedin.com/in/sejokimde/"
