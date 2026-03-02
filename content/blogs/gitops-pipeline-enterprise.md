@@ -1,7 +1,7 @@
 ---
 title: "The 5-Layer GitOps Pipeline We Use for Every Enterprise Client"
 description: "How we structure GitOps across infrastructure, platform, security, observability, and application layers — and why treating them as one flat repo doesn't scale."
-date: "2026-03-09"
+date: "2026-03-02"
 tags: [GitOps, ArgoCD, Kubernetes, Terraform, DevOps, Platform Engineering]
 author:
   name: "Salih Kayiplar"

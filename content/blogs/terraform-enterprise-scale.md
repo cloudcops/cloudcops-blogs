@@ -1,7 +1,7 @@
 ---
 title: "How to Structure Terraform for Enterprise: Modules, Terragrunt, and Testing"
 description: "Practical patterns from managing 50+ Terraform modules across enterprise clients — including when to use Terragrunt, how to test infrastructure code, and the mistakes that create unmaintainable codebases."
-date: "2026-03-23"
+date: "2026-03-02"
 tags: [Terraform, Terragrunt, IaC, DevOps, Azure, Testing, Enterprise]
 author:
   name: "Salih Kayiplar"

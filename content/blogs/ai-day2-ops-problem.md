@@ -1,7 +1,7 @@
 ---
 title: "The AI Day 2 Problem: Why Your AI Agents Need DevOps"
 description: "Companies are deploying LLMs, RAG pipelines, and AI agents into production — but nobody is thinking about what happens after the demo works. Observability, cost controls, backups, runbooks, and incident response for AI infrastructure."
-date: "2026-03-16"
+date: "2026-03-02"
 tags: [AI, DevOps, Day 2 Operations, Kubernetes, Observability, LLM, Platform Engineering]
 author:
   name: "Salih Kayiplar"
