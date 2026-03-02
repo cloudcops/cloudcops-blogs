@@ -1,7 +1,7 @@
 ---
 title: "How We Migrated Apache Kafka from VMs to Kubernetes (AKS)"
 description: "Lessons from migrating a production Kafka cluster, 60+ Elixir microservices, and an entire Ansible-managed infrastructure to Azure Kubernetes Service — including the five things that nearly derailed us."
-date: "2026-02-16"
+date: "2026-03-02"
 tags: [Kubernetes, Kafka, AKS, Migration, Terraform, ArgoCD, GitOps, DevOps]
 author:
   name: "Salih Kayiplar"
