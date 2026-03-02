@@ -10,7 +10,7 @@ import {
 } from "@/lib/resources";
 import { Alert, AlertDescription, AlertTitle } from "@/components/ui/alert";
 import { CallToAction } from "@/components/call-to-action";
-
+import { RelatedPosts } from "@/components/related-posts";
 type BlogPageProps = {
   params: Promise<{ slug: string }>;
 };
@@ -125,6 +125,8 @@ export default async function BlogPage(props: BlogPageProps) {
       <ResourceContent content={resource.content} />
       
       <CallToAction />
+
+      <RelatedPosts currentResource={resource} allResources={getResourcesByType("blogs")} />
     </article>
   );
 }

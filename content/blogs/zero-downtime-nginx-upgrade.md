@@ -2,7 +2,8 @@
 title: "Zero-Downtime NGINX Upgrade in GitOps Environment"
 description: "Learn how to upgrade NGINX Ingress Controller without service downtime using Kubernetes RollingUpdate"
 date: "2025-11-06"
-image: "/images/nginx-upgrade-cover.png"tags: [Kubernetes, GitOps, Helm]
+image: "/images/nginx-upgrade-cover.png"
+tags: [Kubernetes, GitOps, Helm]
 author:
   name: "Sejoon Kim"
   url: "https://www.linkedin.com/in/sejokimde/"
