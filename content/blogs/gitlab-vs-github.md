@@ -169,7 +169,7 @@ Gerade für Unternehmen in regulierten Umfeldern ist ein lückenloser Audit-Trai
 
 ## Die Rolle von KI in der modernen Softwareentwicklung
 
-Kein Vergleich von GitLab und GitHub wäre 2024 vollständig, ohne über künstliche Intelligenz zu sprechen. Hier gehen die beiden Plattformen inzwischen spürbar getrennte Wege.
+Kein Vergleich von GitLab und GitHub wäre 2026 vollständig, ohne über künstliche Intelligenz zu sprechen. Hier gehen die beiden Plattformen inzwischen spürbar getrennte Wege.
 
 GitHub hat mit **Copilot** einen klaren Vorsprung, wenn es um die reine Code-Generierung geht. Trainiert auf einem gigantischen Korpus von Open-Source-Code, ist Copilot tief in den Workflow von Millionen Entwicklern integriert. Es beschleunigt die tägliche Arbeit durch intelligente Code-Vervollständigung und -Vorschläge. Man kann es sich wie einen extrem fähigen Pair-Programmer vorstellen, der nie müde wird.
 
