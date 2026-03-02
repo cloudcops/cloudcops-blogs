@@ -1,0 +1,89 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 550">
+  <defs>
+    <style>
+      text { font-family: Arial, sans-serif; }
+    </style>
+  </defs>
+  <rect width="900" height="550" fill="#0a0a1a"/>
+
+  <!-- Title -->
+  <text x="450" y="35" text-anchor="middle" fill="#fff" font-size="20" font-weight="700">AI Day 2 Operations — Six Pillars</text>
+  <text x="450" y="55" text-anchor="middle" fill="#667" font-size="12">CloudCops AI Infrastructure Framework</text>
+
+  <!-- Row 1 -->
+  <!-- Pillar 1: Secrets -->
+  <rect x="30" y="80" width="270" height="190" rx="6" fill="#1a1a2e" stroke="#cc7832" stroke-width="1"/>
+  <text x="45" y="105" fill="#cc7832" font-size="11" font-weight="700" letter-spacing="2">01</text>
+  <text x="45" y="128" fill="#fff" font-size="17" font-weight="700">Secrets Management</text>
+  <text x="45" y="152" fill="#888" font-size="12">External Secrets Operator</text>
+  <text x="45" y="170" fill="#888" font-size="12">Azure Key Vault / Vault</text>
+  <text x="45" y="188" fill="#888" font-size="12">Auto-rotation policies</text>
+  <text x="45" y="206" fill="#888" font-size="12">Per-service key scoping</text>
+  <text x="45" y="224" fill="#888" font-size="12">Audit trail for access</text>
+  <rect x="45" y="240" width="90" height="20" rx="3" fill="#1a1100" stroke="#cc7832" stroke-width="1"/>
+  <text x="90" y="254" text-anchor="middle" fill="#cc7832" font-size="10" font-weight="600">WEEK 1</text>
+
+  <!-- Pillar 2: Observability -->
+  <rect x="315" y="80" width="270" height="190" rx="6" fill="#1a1a2e" stroke="#00cc44" stroke-width="1"/>
+  <text x="330" y="105" fill="#00cc44" font-size="11" font-weight="700" letter-spacing="2">02</text>
+  <text x="330" y="128" fill="#fff" font-size="17" font-weight="700">Observability</text>
+  <text x="330" y="152" fill="#888" font-size="12">OpenTelemetry custom spans</text>
+  <text x="330" y="170" fill="#888" font-size="12">Token count per request</text>
+  <text x="330" y="188" fill="#888" font-size="12">Latency + error rate</text>
+  <text x="330" y="206" fill="#888" font-size="12">RAG pipeline tracing</text>
+  <text x="330" y="224" fill="#888" font-size="12">Grafana AI dashboards</text>
+  <rect x="330" y="240" width="90" height="20" rx="3" fill="#001a00" stroke="#00cc44" stroke-width="1"/>
+  <text x="375" y="254" text-anchor="middle" fill="#00cc44" font-size="10" font-weight="600">WEEK 3</text>
+
+  <!-- Pillar 3: Cost Controls -->
+  <rect x="600" y="80" width="270" height="190" rx="6" fill="#1a1a2e" stroke="#cc0000" stroke-width="1"/>
+  <text x="615" y="105" fill="#cc0000" font-size="11" font-weight="700" letter-spacing="2">03</text>
+  <text x="615" y="128" fill="#fff" font-size="17" font-weight="700">Cost Controls</text>
+  <text x="615" y="152" fill="#888" font-size="12">Token spend dashboards</text>
+  <text x="615" y="170" fill="#888" font-size="12">Per-agent budget caps</text>
+  <text x="615" y="188" fill="#888" font-size="12">Automated circuit breakers</text>
+  <text x="615" y="206" fill="#888" font-size="12">Spend-per-hour alerts</text>
+  <text x="615" y="224" fill="#888" font-size="12">Runaway loop detection</text>
+  <rect x="615" y="240" width="90" height="20" rx="3" fill="#1a0000" stroke="#cc0000" stroke-width="1"/>
+  <text x="660" y="254" text-anchor="middle" fill="#cc0000" font-size="10" font-weight="600">WEEK 1</text>
+
+  <!-- Row 2 -->
+  <!-- Pillar 4: Data Resilience -->
+  <rect x="30" y="290" width="270" height="190" rx="6" fill="#1a1a2e" stroke="#0a66c2" stroke-width="1"/>
+  <text x="45" y="315" fill="#0a66c2" font-size="11" font-weight="700" letter-spacing="2">04</text>
+  <text x="45" y="338" fill="#fff" font-size="17" font-weight="700">Data Resilience</text>
+  <text x="45" y="362" fill="#888" font-size="12">Vector DB snapshots</text>
+  <text x="45" y="380" fill="#888" font-size="12">Point-in-time recovery</text>
+  <text x="45" y="398" fill="#888" font-size="12">Embedding version tracking</text>
+  <text x="45" y="416" fill="#888" font-size="12">Migration strategies</text>
+  <text x="45" y="434" fill="#888" font-size="12">Tested restore procedures</text>
+  <rect x="45" y="450" width="90" height="20" rx="3" fill="#001122" stroke="#0a66c2" stroke-width="1"/>
+  <text x="90" y="464" text-anchor="middle" fill="#0a66c2" font-size="10" font-weight="600">WEEK 4</text>
+
+  <!-- Pillar 5: Incident Response -->
+  <rect x="315" y="290" width="270" height="190" rx="6" fill="#1a1a2e" stroke="#9966cc" stroke-width="1"/>
+  <text x="330" y="315" fill="#9966cc" font-size="11" font-weight="700" letter-spacing="2">05</text>
+  <text x="330" y="338" fill="#fff" font-size="17" font-weight="700">Incident Response</text>
+  <text x="330" y="362" fill="#888" font-size="12">AI-specific runbooks</text>
+  <text x="330" y="380" fill="#888" font-size="12">Kill switches per feature</text>
+  <text x="330" y="398" fill="#888" font-size="12">Escalation paths</text>
+  <text x="330" y="416" fill="#888" font-size="12">Hallucination playbook</text>
+  <text x="330" y="434" fill="#888" font-size="12">Provider outage response</text>
+  <rect x="330" y="450" width="90" height="20" rx="3" fill="#110022" stroke="#9966cc" stroke-width="1"/>
+  <text x="375" y="464" text-anchor="middle" fill="#9966cc" font-size="10" font-weight="600">WEEK 2</text>
+
+  <!-- Pillar 6: GitOps for AI -->
+  <rect x="600" y="290" width="270" height="190" rx="6" fill="#1a1a2e" stroke="#fff" stroke-width="1"/>
+  <text x="615" y="315" fill="#fff" font-size="11" font-weight="700" letter-spacing="2">06</text>
+  <text x="615" y="338" fill="#fff" font-size="17" font-weight="700">GitOps for AI</text>
+  <text x="615" y="362" fill="#888" font-size="12">Prompts in version control</text>
+  <text x="615" y="380" fill="#888" font-size="12">PR-reviewed config changes</text>
+  <text x="615" y="398" fill="#888" font-size="12">Model version pinning</text>
+  <text x="615" y="416" fill="#888" font-size="12">Canary prompt deploys</text>
+  <text x="615" y="434" fill="#888" font-size="12">ArgoCD for AI configs</text>
+  <rect x="615" y="450" width="90" height="20" rx="3" fill="#1a1a1a" stroke="#fff" stroke-width="1"/>
+  <text x="660" y="464" text-anchor="middle" fill="#fff" font-size="10" font-weight="600">ONGOING</text>
+
+  <!-- Footer -->
+  <text x="450" y="530" text-anchor="middle" fill="#334" font-size="11">cloudcops.de</text>
+</svg>
