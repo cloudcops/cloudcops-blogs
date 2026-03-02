@@ -32,7 +32,7 @@ export function SiteFooter() {
                 <a href="https://cloudcops.com/en" className="text-sm text-muted-foreground transition-colors hover:text-primary" target="_blank" rel="noreferrer">Cloud Infrastructure</a>
               </li>
               <li>
-                <a href="https://cloudcops.com/en" className="text-sm text-muted-foreground transition-colors hover:text-primary" target="_blank" rel="noreferrer">Security & Compliance</a>
+                <a href="https://cloudcops.com/en" className="text-sm text-muted-foreground transition-colors hover:text-primary" target="_blank" rel="noreferrer">Security &amp; Compliance</a>
               </li>
               <li>
                 <a href="https://cloudcops.com/en" className="text-sm text-muted-foreground transition-colors hover:text-primary" target="_blank" rel="noreferrer">Kubernetes Management</a>
@@ -47,7 +47,7 @@ export function SiteFooter() {
                 <a href="https://cloudcops.com/en/about-us" className="text-sm text-muted-foreground transition-colors hover:text-primary" target="_blank" rel="noreferrer">About Us</a>
               </li>
               <li>
-                <Link href="/" className="text-sm text-muted-foreground transition-colors hover:text-primary">Blog & Resources</Link>
+                <Link href="/" className="text-sm text-muted-foreground transition-colors hover:text-primary">Blog &amp; Resources</Link>
               </li>
               <li>
                 <a href="https://calendly.com/salih-kayiplar" className="text-sm text-muted-foreground transition-colors hover:text-primary" target="_blank" rel="noreferrer">Contact Us</a>
@@ -65,9 +65,10 @@ export function SiteFooter() {
                 <a href="https://cloudcops.com/en/privacy-policy" className="text-sm text-muted-foreground transition-colors hover:text-primary" target="_blank" rel="noreferrer">Privacy Policy</a>
               </li>
               <li>
-                <a href="https://cloudcops.com/en/terms-conditions" className="text-sm text-muted-foreground transition-colors hover:text-primary" target="_blank" rel="noreferrer">Terms & Conditions</a>
+                <a href="https://cloudcops.com/en/terms-conditions" className="text-sm text-muted-foreground transition-colors hover:text-primary" target="_blank" rel="noreferrer">Terms &amp; Conditions</a>
               </li>
             </ul>
+        </div>
         </div>
 
         <div className="mt-16 flex flex-col items-center justify-between border-t border-white/10 pt-8 md:flex-row">
