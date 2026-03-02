@@ -52,7 +52,7 @@ export default async function BlogsPage(props: BlogsPageProps) {
           CloudCops Resources
         </h1>
         <p className="max-w-2xl text-base text-muted-foreground md:text-lg">
-          Practical guidance, case studies, and insights for modern cloud and DevOps teams. Elevate your infrastructure to the next level.
+          Practical guidance, case studies, and insights for modern cloud and DevOps teams. Mastering Day 2 operations and modern infrastructure in the era of AI.
         </p>
         <div className="pt-4 flex flex-col sm:flex-row items-center gap-4">
           <a
