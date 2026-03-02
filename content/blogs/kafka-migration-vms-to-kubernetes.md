@@ -6,6 +6,7 @@ tags: [Kubernetes, Kafka, AKS, Migration, Terraform, ArgoCD, GitOps, DevOps]
 author:
   name: "Salih Kayiplar"
   url: "https://www.linkedin.com/in/salihkayiplar/"
+image: "/images/kafka-migration-cover.png"
 ---
 
 ## Background
