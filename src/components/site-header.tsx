@@ -87,7 +87,7 @@ export function SiteHeader() {
           )}
         </button>
 
-        <div className="hidden md:flex w-auto justify-end min-w-[180px]">
+        <div className="hidden md:flex w-auto justify-end min-w-[180px] flex-shrink-0">
           <a
             href="https://calendly.com/salih-kayiplar"
             target="_blank"

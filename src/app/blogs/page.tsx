@@ -59,7 +59,7 @@ export default async function BlogsPage(props: BlogsPageProps) {
             href="https://calendly.com/salih-kayiplar"
             target="_blank"
             rel="noreferrer"
-            className="group relative inline-flex h-12 items-center justify-center gap-2 overflow-hidden rounded-full bg-primary px-8 text-sm font-medium !text-black shadow-[0_0_20px_rgba(60,130,255,0.3)] transition-all hover:bg-primary/90 hover:shadow-[0_0_30px_rgba(60,130,255,0.5)] no-underline"
+            className="group relative inline-flex h-12 items-center justify-center gap-2 overflow-hidden rounded-full bg-primary px-8 text-sm font-medium text-primary-foreground shadow-[0_0_20px_rgba(60,130,255,0.3)] transition-all hover:bg-primary/90 hover:shadow-[0_0_30px_rgba(60,130,255,0.5)] no-underline"
           >
             <span>Discuss your project</span>
             <svg
