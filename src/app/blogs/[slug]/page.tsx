@@ -8,6 +8,7 @@ import {
   getResourceBySlug,
 } from "@/lib/resources";
 import { Alert, AlertDescription, AlertTitle } from "@/components/ui/alert";
+import { CallToAction } from "@/components/call-to-action";
 
 type BlogPageProps = {
   params: Promise<{ slug: string }>;
@@ -109,6 +110,8 @@ export default async function BlogPage(props: BlogPageProps) {
       </div>
 
       <ResourceContent content={resource.content} />
+      
+      <CallToAction />
     </article>
   );
 }

@@ -47,14 +47,31 @@ export default async function BlogsPage(props: BlogsPageProps) {
 
   return (
     <div className="space-y-10">
-      <div className="space-y-4">
-        <h1 className="bg-gradient-to-r from-primary/90 via-primary to-primary/70 bg-clip-text pb-1 text-4xl font-semibold tracking-tight text-transparent md:text-[2.75rem] md:leading-[1.22]">
-          Blogs
+      <div className="flex flex-col items-center justify-center space-y-6 text-center py-10 md:py-16">
+        <h1 className="bg-gradient-to-r from-white via-primary/90 to-primary/60 bg-clip-text pb-2 text-4xl font-extrabold tracking-tight text-transparent md:text-[3.5rem] md:leading-[1.1]">
+          CloudCops Resources
         </h1>
-        <p className="max-w-2xl text-base text-white/70 md:text-lg">
-          Practical guidance for modern cloud and DevOps teams.
+        <p className="max-w-2xl text-base text-muted-foreground md:text-lg">
+          Practical guidance, case studies, and insights for modern cloud and DevOps teams. Elevate your infrastructure to the next level.
         </p>
-        <div className="h-px w-20 bg-gradient-to-r from-primary/60 to-transparent" />
+        <div className="pt-4 flex flex-col sm:flex-row items-center gap-4">
+          <a
+            href="https://calendly.com/salih-kayiplar"
+            target="_blank"
+            rel="noreferrer"
+            className="group relative inline-flex h-12 items-center justify-center gap-2 overflow-hidden rounded-full bg-primary px-8 text-sm font-medium text-primary-foreground shadow-[0_0_20px_rgba(60,130,255,0.3)] transition-all hover:bg-primary/90 hover:shadow-[0_0_30px_rgba(60,130,255,0.5)]"
+          >
+            <span>Discuss your project</span>
+            <svg
+              className="h-4 w-4 transition-transform group-hover:translate-x-1"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+            >
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M14 5l7 7m0 0l-7 7m7-7H3" />
+            </svg>
+          </a>
+        </div>
       </div>
       {affected.length > 0 ? (
         <Alert variant="destructive">

@@ -95,66 +95,65 @@ export function ResourceList({
           {emptyState ?? "No resources found. Try another keyword."}
         </p>
       ) : (
-        <div className="space-y-4">
+        <div className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
           {filtered.map((resource) => (
             <Card
               key={`${resource.type}-${resource.slug}`}
               className={cn(
-                "relative overflow-hidden border border-white/5 bg-card/85 backdrop-blur-sm transition hover:border-primary/30",
+                "group relative flex flex-col overflow-hidden border border-white/5 bg-card/60 backdrop-blur-sm transition-all duration-300 hover:-translate-y-1 hover:border-primary/40 hover:bg-card/80 hover:shadow-[0_8px_30px_rgba(60,130,255,0.15)]",
                 resource.missingRequired.length > 0 &&
                   "border-destructive/40"
               )}
             >
-              <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-primary/50 to-transparent" />
-              <CardHeader>
-                <CardTitle className="text-xl text-foreground">
-                  <Link
-                    href={`/${resource.type}/${resource.slug}`}
-                    className="hover:text-primary hover:underline"
-                  >
-                    {resource.title ?? "Untitled resource"}
-                  </Link>
-                </CardTitle>
-                <CardDescription className="text-sm text-muted-foreground/80">
+              <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-primary/50 to-transparent opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
+              <Link href={`/${resource.type}/${resource.slug}`} className="absolute inset-0 z-10">
+                <span className="sr-only">Read {resource.title}</span>
+              </Link>
+              <CardHeader className="flex-none">
+                <div className="mb-3 flex items-center justify-between text-xs text-muted-foreground/80">
                   <span className="font-medium text-foreground/80">
                     {formatDate(resource.date)}
                   </span>
-                  {resource.author?.name ? (
-                    <>
-                      <span className="mx-2">•</span>
-                      {resource.author.url ? (
-                        <a
-                          href={resource.author.url}
-                          className="text-muted-foreground underline-offset-4 hover:underline"
-                        >
-                          {resource.author.name}
-                        </a>
-                      ) : (
-                        <span>{resource.author.name}</span>
-                      )}
-                    </>
-                  ) : null}
+                </div>
+                <CardTitle className="line-clamp-2 text-xl font-bold leading-tight text-foreground transition-colors group-hover:text-primary">
+                  {resource.title ?? "Untitled resource"}
+                </CardTitle>
+                <CardDescription className="line-clamp-3 mt-3 text-sm leading-relaxed text-muted-foreground">
+                  {resource.description}
                 </CardDescription>
               </CardHeader>
-              <CardContent className="space-y-3">
-                {resource.description ? (
-                  <p className="text-sm text-muted-foreground">
-                    {resource.description}
-                  </p>
-                ) : null}
+              <CardContent className="mt-auto flex flex-col gap-4 pt-4">
                 <div className="flex flex-wrap gap-2">
-                  {resource.tags.map((tag) => (
+                  {resource.tags.slice(0, 3).map((tag) => (
                     <Badge
                       key={tag}
                       variant="secondary"
-                      className="border border-primary/30 bg-primary/15 text-primary"
+                      className="border border-white/10 bg-white/5 text-xs font-medium text-white/80 transition-colors group-hover:border-primary/30 group-hover:bg-primary/10 group-hover:text-primary"
                     >
                       {tag}
                     </Badge>
                   ))}
+                  {resource.tags.length > 3 && (
+                    <Badge
+                      variant="secondary"
+                      className="border border-white/10 bg-white/5 text-xs font-medium text-white/80"
+                    >
+                      +{resource.tags.length - 3}
+                    </Badge>
+                  )}
                 </div>
+                {resource.author?.name ? (
+                  <div className="flex items-center gap-2 pt-2 border-t border-white/5 mt-2">
+                    <div className="h-6 w-6 rounded-full bg-primary/20 flex items-center justify-center text-xs text-primary font-bold">
+                      {resource.author.name.charAt(0)}
+                    </div>
+                    <span className="text-sm font-medium text-foreground/90">
+                      {resource.author.name}
+                    </span>
+                  </div>
+                ) : null}
                 {resource.missingRequired.length > 0 ? (
-                  <p className="text-sm font-medium text-destructive">
+                  <p className="text-xs font-medium text-destructive">
                     Missing required metadata: {resource.missingRequired.join(", ")}
                   </p>
                 ) : null}
