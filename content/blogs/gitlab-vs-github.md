@@ -7,6 +7,7 @@ author:
   name: "CloudCops"
   url: "https://www.linkedin.com/company/cloudcops/"
 image: "/images/gitlab-vs-github-cover.png"
+lang: "de"
 ---
 Im Kern geht es bei der Entscheidung zwischen GitLab und GitHub um eine grundlegende Philosophie: GitLab wurde als **komplett integrierte DevOps-Plattform** gebaut, die den gesamten Entwicklungszyklus in einem einzigen Werkzeug vereint. GitHub hingegen ist das **kollaborative Zentrum für Softwareentwicklung**, das seine enorme Stärke aus einem riesigen Marktplatz und erstklassigen Integrationen wie dem KI-Assistenten [GitHub Copilot](https://github.com/features/copilot) zieht.
 
