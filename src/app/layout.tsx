@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import { SiteHeader } from "@/components/site-header";
+import { SiteFooter } from "@/components/site-footer";
 import "./globals.css";
 
 const geistSans = Geist({
@@ -68,9 +69,7 @@ export default function RootLayout({
               </div>
             </div>
           </main>
-          <footer className="border-t border-white/10 py-6 text-center text-xs text-muted-foreground md:text-sm">
-            © {new Date().getFullYear()} CloudCops. All rights reserved.
-          </footer>
+          <SiteFooter />
         </div>
       </body>
     </html>

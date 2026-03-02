@@ -1,6 +1,7 @@
 import { notFound } from "next/navigation";
 import type { Metadata } from "next";
 import Link from "next/link";
+import Image from "next/image";
 import { ResourceContent } from "@/components/resource-content";
 import { Badge } from "@/components/ui/badge";
 import {
@@ -8,7 +9,8 @@ import {
   getResourceBySlug,
 } from "@/lib/resources";
 import { Alert, AlertDescription, AlertTitle } from "@/components/ui/alert";
-
+import { CallToAction } from "@/components/call-to-action";
+import { RelatedPosts } from "@/components/related-posts";
 type BlogPageProps = {
   params: Promise<{ slug: string }>;
 };
@@ -108,7 +110,23 @@ export default async function BlogPage(props: BlogPageProps) {
         ) : null}
       </div>
 
+      {resource.image && (
+        <div className="relative w-full aspect-[2/1] rounded-2xl overflow-hidden border border-white/10 shadow-[0_8px_30px_rgba(60,130,255,0.15)] my-8 bg-secondary/20">
+          <Image
+            src={resource.image}
+            alt={resource.title ?? "Blog Cover"}
+            fill
+            className="object-cover"
+            priority
+            sizes="(max-width: 1200px) 100vw, 1200px"
+          />
+        </div>
+      )}
       <ResourceContent content={resource.content} />
+      
+      <CallToAction />
+
+      <RelatedPosts currentResource={resource} allResources={getResourcesByType("blogs")} />
     </article>
   );
 }

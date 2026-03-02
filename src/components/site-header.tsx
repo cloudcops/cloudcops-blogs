@@ -3,7 +3,7 @@
 import Link from "next/link";
 import Image from "next/image";
 import { useState } from "react";
-import { Menu, X } from "lucide-react";
+import { Menu, X, Calendar } from "lucide-react";
 import { cn } from "@/lib/utils";
 
 type LinkConfig = {
@@ -87,7 +87,17 @@ export function SiteHeader() {
           )}
         </button>
 
-        <div className="hidden w-[160px] md:block" aria-hidden="true" />
+        <div className="hidden md:flex w-auto justify-end min-w-[180px] flex-shrink-0">
+          <a
+            href="https://calendly.com/salih-kayiplar"
+            target="_blank"
+            rel="noreferrer"
+            className="group relative inline-flex h-9 whitespace-nowrap items-center justify-center gap-2 overflow-hidden rounded-full bg-primary/10 px-4 py-2 text-sm font-medium text-primary border border-primary/20 transition-all hover:bg-primary hover:text-white hover:shadow-[0_0_20px_rgba(60,130,255,0.4)] no-underline hover:no-underline"
+          >
+            <Calendar className="h-4 w-4" />
+            <span>Book a Meeting</span>
+          </a>
+        </div>
       </div>
 
       {/* Mobile Navigation Menu */}
@@ -114,6 +124,18 @@ export function SiteHeader() {
                 </Link>
               );
             })}
+            <div className="pt-4 mt-2 border-t border-white/10">
+              <a
+                href="https://calendly.com/salih-kayiplar"
+                target="_blank"
+                rel="noreferrer"
+                onClick={() => setMobileMenuOpen(false)}
+                className="flex w-full items-center justify-center gap-2 rounded-md bg-primary px-4 py-3 text-sm font-medium text-white transition-colors hover:bg-primary/90 hover:text-white no-underline hover:no-underline"
+              >
+                <Calendar className="h-4 w-4" />
+                Book a Meeting
+              </a>
+          </div>
           </div>
         </nav>
       )}

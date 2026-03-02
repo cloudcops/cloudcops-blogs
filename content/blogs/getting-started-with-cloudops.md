@@ -2,6 +2,7 @@
 title: "Welcome to CloudCops Blogs"
 description: "An introduction to why we built this hub and what you can expect."
 date: "2025-11-05"
+image: "/images/cloudops-welcome-cover.png"
 tags: [nextjs, shadcn, content]
 author:
   name: "Salih Kayiplar"

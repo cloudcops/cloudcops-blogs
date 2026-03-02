@@ -2,6 +2,7 @@
 title: "Zero-Downtime NGINX Upgrade in GitOps Environment"
 description: "Learn how to upgrade NGINX Ingress Controller without service downtime using Kubernetes RollingUpdate"
 date: "2025-11-06"
+image: "/images/nginx-upgrade-cover.png"
 tags: [Kubernetes, GitOps, Helm]
 author:
   name: "Sejoon Kim"
@@ -40,7 +41,7 @@ By default, Kubernetes uses these values:
 strategy:
   type: RollingUpdate
   rollingUpdate:
-    maxSurge: 25%
+image: "/images/nginx-upgrade-cover.png"    maxSurge: 25%
     maxUnavailable: 25%
 ```
 
@@ -66,7 +67,7 @@ We modified the NGINX Helm chart values to use the following RollingUpdate confi
 updateStrategy:
   type: RollingUpdate
   rollingUpdate:
-    maxSurge: 1
+image: "/images/nginx-upgrade-cover.png"    maxSurge: 1
     maxUnavailable: 0
 minReadySeconds: 10
 ```
@@ -145,7 +146,7 @@ controller:
   updateStrategy:
     type: RollingUpdate
     rollingUpdate:
-      maxSurge: 1
+image: "/images/nginx-upgrade-cover.png"      maxSurge: 1
       maxUnavailable: 0
 
   minReadySeconds: 10
