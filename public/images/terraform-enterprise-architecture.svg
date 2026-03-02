@@ -1,0 +1,105 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 500">
+  <defs>
+    <style>
+      text { font-family: Arial, sans-serif; }
+    </style>
+  </defs>
+  <rect width="900" height="500" fill="#0a0a1a"/>
+
+  <!-- Title -->
+  <text x="450" y="35" text-anchor="middle" fill="#fff" font-size="20" font-weight="700">Terraform Enterprise Structure</text>
+  <text x="450" y="55" text-anchor="middle" fill="#667" font-size="12">Modules + Terragrunt + Testing</text>
+
+  <!-- Module Registry (left) -->
+  <rect x="30" y="80" width="250" height="360" rx="6" fill="#1a1a2e" stroke="#7b42bc" stroke-width="1"/>
+  <text x="155" y="105" text-anchor="middle" fill="#7b42bc" font-size="12" font-weight="700" letter-spacing="2">MODULE REGISTRY</text>
+
+  <rect x="50" y="120" width="210" height="42" rx="4" fill="#110022" stroke="#7b42bc" stroke-width="1"/>
+  <text x="65" y="140" fill="#fff" font-size="13" font-weight="600">terraform-azurerm-aks</text>
+  <text x="235" y="140" text-anchor="end" fill="#7b42bc" font-size="11">v3.2.1</text>
+
+  <rect x="50" y="172" width="210" height="42" rx="4" fill="#110022" stroke="#7b42bc" stroke-width="1"/>
+  <text x="65" y="192" fill="#fff" font-size="13" font-weight="600">terraform-azurerm-vnet</text>
+  <text x="235" y="192" text-anchor="end" fill="#7b42bc" font-size="11">v2.0.4</text>
+
+  <rect x="50" y="224" width="210" height="42" rx="4" fill="#110022" stroke="#7b42bc" stroke-width="1"/>
+  <text x="65" y="244" fill="#fff" font-size="13" font-weight="600">terraform-azurerm-keyvault</text>
+  <text x="235" y="244" text-anchor="end" fill="#7b42bc" font-size="11">v1.5.0</text>
+
+  <rect x="50" y="276" width="210" height="42" rx="4" fill="#110022" stroke="#7b42bc" stroke-width="1"/>
+  <text x="65" y="296" fill="#fff" font-size="13" font-weight="600">terraform-azurerm-monitor</text>
+  <text x="235" y="296" text-anchor="end" fill="#7b42bc" font-size="11">v2.1.0</text>
+
+  <rect x="50" y="328" width="210" height="42" rx="4" fill="#110022" stroke="#7b42bc" stroke-width="1"/>
+  <text x="65" y="348" fill="#fff" font-size="13" font-weight="600">terraform-azurerm-storage</text>
+  <text x="235" y="348" text-anchor="end" fill="#7b42bc" font-size="11">v1.3.2</text>
+
+  <!-- Each module: Terratest badge -->
+  <rect x="50" y="382" width="80" height="22" rx="3" fill="#001a00" stroke="#00cc44" stroke-width="1"/>
+  <text x="90" y="397" text-anchor="middle" fill="#00cc44" font-size="10" font-weight="600">Terratest</text>
+  <rect x="140" y="382" width="55" height="22" rx="3" fill="#001a00" stroke="#00cc44" stroke-width="1"/>
+  <text x="167" y="397" text-anchor="middle" fill="#00cc44" font-size="10" font-weight="600">CI/CD</text>
+  <rect x="205" y="382" width="55" height="22" rx="3" fill="#001a00" stroke="#00cc44" stroke-width="1"/>
+  <text x="232" y="397" text-anchor="middle" fill="#00cc44" font-size="10" font-weight="600">SemVer</text>
+
+  <!-- Arrows from registry to environments -->
+  <line x1="280" y1="200" x2="330" y2="150" stroke="#444" stroke-width="1" stroke-dasharray="4,4"/>
+  <line x1="280" y1="260" x2="330" y2="260" stroke="#444" stroke-width="1" stroke-dasharray="4,4"/>
+  <line x1="280" y1="310" x2="330" y2="370" stroke="#444" stroke-width="1" stroke-dasharray="4,4"/>
+
+  <!-- Terragrunt Live (right) -->
+  <rect x="330" y="80" width="540" height="360" rx="6" fill="#1a1a2e" stroke="#cc7832" stroke-width="1"/>
+  <text x="600" y="105" text-anchor="middle" fill="#cc7832" font-size="12" font-weight="700" letter-spacing="2">TERRAGRUNT LIVE REPO</text>
+
+  <!-- Dev -->
+  <rect x="350" y="120" width="160" height="140" rx="4" fill="#111a22" stroke="#0a66c2" stroke-width="1"/>
+  <text x="430" y="142" text-anchor="middle" fill="#0a66c2" font-size="12" font-weight="700">DEV</text>
+  <text x="365" y="164" fill="#888" font-size="11">networking/</text>
+  <text x="365" y="182" fill="#888" font-size="11">aks/</text>
+  <text x="365" y="200" fill="#888" font-size="11">keyvault/</text>
+  <text x="365" y="218" fill="#888" font-size="11">monitoring/</text>
+  <text x="365" y="244" fill="#556" font-size="10">env.hcl: westeurope</text>
+
+  <!-- Staging -->
+  <rect x="525" y="120" width="160" height="140" rx="4" fill="#1a1a11" stroke="#cc7832" stroke-width="1"/>
+  <text x="605" y="142" text-anchor="middle" fill="#cc7832" font-size="12" font-weight="700">STAGING</text>
+  <text x="540" y="164" fill="#888" font-size="11">networking/</text>
+  <text x="540" y="182" fill="#888" font-size="11">aks/</text>
+  <text x="540" y="200" fill="#888" font-size="11">keyvault/</text>
+  <text x="540" y="218" fill="#888" font-size="11">monitoring/</text>
+  <text x="540" y="244" fill="#556" font-size="10">env.hcl: westeurope</text>
+
+  <!-- Production -->
+  <rect x="700" y="120" width="160" height="140" rx="4" fill="#1a1111" stroke="#cc0000" stroke-width="1"/>
+  <text x="780" y="142" text-anchor="middle" fill="#cc0000" font-size="12" font-weight="700">PRODUCTION</text>
+  <text x="715" y="164" fill="#888" font-size="11">networking/</text>
+  <text x="715" y="182" fill="#888" font-size="11">aks/</text>
+  <text x="715" y="200" fill="#888" font-size="11">keyvault/</text>
+  <text x="715" y="218" fill="#888" font-size="11">monitoring/</text>
+  <text x="715" y="244" fill="#556" font-size="10">env.hcl: germanywestcentral</text>
+
+  <!-- Root config -->
+  <rect x="350" y="280" width="510" height="50" rx="4" fill="#111" stroke="#444" stroke-width="1"/>
+  <text x="365" y="302" fill="#888" font-size="12">terragrunt.hcl</text>
+  <text x="365" y="320" fill="#556" font-size="11">Remote state: Azure Storage | Provider: AzureRM | Common vars</text>
+
+  <!-- Dependency arrows within env -->
+  <text x="350" y="355" fill="#888" font-size="11" font-weight="600">Dependency chain:</text>
+  <rect x="350" y="365" width="85" height="26" rx="4" fill="#111" stroke="#444" stroke-width="1"/>
+  <text x="392" y="383" text-anchor="middle" fill="#aaa" font-size="11">networking</text>
+  <text x="445" y="383" fill="#444" font-size="13">--></text>
+  <rect x="465" y="365" width="50" height="26" rx="4" fill="#111" stroke="#444" stroke-width="1"/>
+  <text x="490" y="383" text-anchor="middle" fill="#aaa" font-size="11">aks</text>
+  <text x="525" y="383" fill="#444" font-size="13">--></text>
+  <rect x="545" y="365" width="70" height="26" rx="4" fill="#111" stroke="#444" stroke-width="1"/>
+  <text x="580" y="383" text-anchor="middle" fill="#aaa" font-size="11">keyvault</text>
+  <text x="625" y="383" fill="#444" font-size="13">--></text>
+  <rect x="645" y="365" width="85" height="26" rx="4" fill="#111" stroke="#444" stroke-width="1"/>
+  <text x="687" y="383" text-anchor="middle" fill="#aaa" font-size="11">monitoring</text>
+
+  <!-- State split note -->
+  <text x="350" y="420" fill="#00cc44" font-size="11" font-weight="600">Separate state files per component — no lock contention</text>
+
+  <!-- Footer -->
+  <text x="450" y="475" text-anchor="middle" fill="#334" font-size="11">cloudcops.de</text>
+</svg>

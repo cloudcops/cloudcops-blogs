@@ -1,0 +1,78 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 600">
+  <defs>
+    <style>
+      text { font-family: Arial, sans-serif; }
+    </style>
+  </defs>
+  <rect width="900" height="600" fill="#0a0a1a"/>
+
+  <!-- Title -->
+  <text x="450" y="40" text-anchor="middle" fill="#fff" font-size="20" font-weight="700">5-Layer GitOps Pipeline</text>
+  <text x="450" y="60" text-anchor="middle" fill="#667" font-size="12">CloudCops Enterprise Architecture</text>
+
+  <!-- Layer 1: Infrastructure -->
+  <rect x="50" y="85" width="800" height="80" rx="6" fill="#1a1a2e" stroke="#334" stroke-width="1"/>
+  <text x="70" y="115" fill="#cc7832" font-size="11" font-weight="700" letter-spacing="2">LAYER 1</text>
+  <text x="70" y="135" fill="#fff" font-size="16" font-weight="700">Infrastructure</text>
+  <text x="70" y="152" fill="#888" font-size="12">Terraform + Terragrunt — AKS, VNets, Key Vault, Storage</text>
+  <rect x="620" y="100" width="100" height="28" rx="4" fill="#1a1100" stroke="#cc7832" stroke-width="1"/>
+  <text x="670" y="119" text-anchor="middle" fill="#cc7832" font-size="11" font-weight="600">Terraform</text>
+  <rect x="735" y="100" width="100" height="28" rx="4" fill="#1a1100" stroke="#cc7832" stroke-width="1"/>
+  <text x="785" y="119" text-anchor="middle" fill="#cc7832" font-size="11" font-weight="600">CI/CD Apply</text>
+
+  <!-- Arrow -->
+  <line x1="450" y1="165" x2="450" y2="185" stroke="#334" stroke-width="1"/>
+  <polygon points="445,183 455,183 450,190" fill="#334"/>
+
+  <!-- Layer 2: Platform -->
+  <rect x="50" y="190" width="800" height="80" rx="6" fill="#1a1a2e" stroke="#334" stroke-width="1"/>
+  <text x="70" y="220" fill="#0a66c2" font-size="11" font-weight="700" letter-spacing="2">LAYER 2</text>
+  <text x="70" y="240" fill="#fff" font-size="16" font-weight="700">Platform</text>
+  <text x="70" y="257" fill="#888" font-size="12">NGINX Ingress, cert-manager, ESO, Velero, ArgoCD</text>
+  <rect x="620" y="205" width="100" height="28" rx="4" fill="#001122" stroke="#0a66c2" stroke-width="1"/>
+  <text x="670" y="224" text-anchor="middle" fill="#0a66c2" font-size="11" font-weight="600">ArgoCD</text>
+  <rect x="735" y="205" width="100" height="28" rx="4" fill="#001122" stroke="#0a66c2" stroke-width="1"/>
+  <text x="785" y="224" text-anchor="middle" fill="#0a66c2" font-size="11" font-weight="600">Manual Sync</text>
+
+  <!-- Arrow -->
+  <line x1="450" y1="270" x2="450" y2="290" stroke="#334" stroke-width="1"/>
+  <polygon points="445,288 455,288 450,295" fill="#334"/>
+
+  <!-- Layer 3: Security -->
+  <rect x="50" y="295" width="800" height="80" rx="6" fill="#1a1a2e" stroke="#334" stroke-width="1"/>
+  <text x="70" y="325" fill="#cc0000" font-size="11" font-weight="700" letter-spacing="2">LAYER 3</text>
+  <text x="70" y="345" fill="#fff" font-size="16" font-weight="700">Security</text>
+  <text x="70" y="362" fill="#888" font-size="12">OPA Gatekeeper, Network Policies, Pod Security, LinkerD mTLS</text>
+  <rect x="620" y="310" width="100" height="28" rx="4" fill="#1a0000" stroke="#cc0000" stroke-width="1"/>
+  <text x="670" y="329" text-anchor="middle" fill="#cc0000" font-size="11" font-weight="600">ArgoCD</text>
+  <rect x="735" y="310" width="100" height="28" rx="4" fill="#1a0000" stroke="#cc0000" stroke-width="1"/>
+  <text x="785" y="329" text-anchor="middle" fill="#cc0000" font-size="11" font-weight="600">Audit Trail</text>
+
+  <!-- Arrow -->
+  <line x1="450" y1="375" x2="450" y2="395" stroke="#334" stroke-width="1"/>
+  <polygon points="445,393 455,393 450,400" fill="#334"/>
+
+  <!-- Layer 4: Observability -->
+  <rect x="50" y="400" width="800" height="80" rx="6" fill="#1a1a2e" stroke="#334" stroke-width="1"/>
+  <text x="70" y="430" fill="#00cc44" font-size="11" font-weight="700" letter-spacing="2">LAYER 4</text>
+  <text x="70" y="450" fill="#fff" font-size="16" font-weight="700">Observability</text>
+  <text x="70" y="467" fill="#888" font-size="12">Prometheus, Grafana, Loki, Tempo, Alertmanager, ServiceMonitors</text>
+  <rect x="620" y="415" width="100" height="28" rx="4" fill="#001a00" stroke="#00cc44" stroke-width="1"/>
+  <text x="670" y="434" text-anchor="middle" fill="#00cc44" font-size="11" font-weight="600">ArgoCD</text>
+  <rect x="735" y="415" width="100" height="28" rx="4" fill="#001a00" stroke="#00cc44" stroke-width="1"/>
+  <text x="785" y="434" text-anchor="middle" fill="#00cc44" font-size="11" font-weight="600">Auto Sync</text>
+
+  <!-- Arrow -->
+  <line x1="450" y1="480" x2="450" y2="500" stroke="#334" stroke-width="1"/>
+  <polygon points="445,498 455,498 450,505" fill="#334"/>
+
+  <!-- Layer 5: Applications -->
+  <rect x="50" y="505" width="800" height="80" rx="6" fill="#1a1a2e" stroke="#334" stroke-width="1"/>
+  <text x="70" y="535" fill="#9966cc" font-size="11" font-weight="700" letter-spacing="2">LAYER 5</text>
+  <text x="70" y="555" fill="#fff" font-size="16" font-weight="700">Applications</text>
+  <text x="70" y="572" fill="#888" font-size="12">Team namespaces, AppProjects, scoped RBAC — teams deploy autonomously</text>
+  <rect x="620" y="520" width="100" height="28" rx="4" fill="#110022" stroke="#9966cc" stroke-width="1"/>
+  <text x="670" y="539" text-anchor="middle" fill="#9966cc" font-size="11" font-weight="600">ArgoCD</text>
+  <rect x="735" y="520" width="100" height="28" rx="4" fill="#110022" stroke="#9966cc" stroke-width="1"/>
+  <text x="785" y="539" text-anchor="middle" fill="#9966cc" font-size="11" font-weight="600">Auto Sync</text>
+</svg>
