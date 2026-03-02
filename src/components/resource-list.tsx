@@ -57,12 +57,22 @@ export function ResourceList({
 }: ResourceListProps) {
   const [query, setQuery] = useState("");
   const [selectedTag, setSelectedTag] = useState<string | null>(null);
+  const [selectedLang, setSelectedLang] = useState<string | null>(null);
 
   const allTags = useMemo(() => {
     const tags = new Set<string>();
     resources.forEach((r) => r.tags.forEach((t) => tags.add(t)));
     return Array.from(tags).sort();
   }, [resources]);
+
+  const allLangs = useMemo(() => {
+    const langs = new Set<string>();
+    resources.forEach((r) => langs.add(r.lang ?? "en"));
+    return Array.from(langs).sort();
+  }, [resources]);
+
+  const LANG_LABELS: Record<string, string> = { en: "EN", de: "DE" };
+  const hasMultipleLangs = allLangs.length > 1;
 
   const filtered = useMemo(() => {
     return resources.filter((resource) => {
@@ -74,16 +84,17 @@ export function ResourceList({
       ].filter(Boolean).join(" ").toLowerCase().includes(query.toLowerCase());
       
       const matchesTag = !selectedTag || resource.tags.includes(selectedTag);
-      
-      return matchesQuery && matchesTag;
-    });
-  }, [query, selectedTag, resources]);
+      const matchesLang = !selectedLang || (resource.lang ?? "en") === selectedLang;
 
-  const showPagination = totalPages > 1 && !query.trim() && !selectedTag;
+      return matchesQuery && matchesTag && matchesLang;
+    });
+  }, [query, selectedTag, selectedLang, resources]);
+
+  const showPagination = totalPages > 1 && !query.trim() && !selectedTag && !selectedLang;
   const startResult = (currentPage - 1) * resources.length + 1;
   const endResult = startResult + filtered.length - 1;
 
-  const isFeaturedView = currentPage === 1 && !query.trim() && !selectedTag;
+  const isFeaturedView = currentPage === 1 && !query.trim() && !selectedTag && !selectedLang;
   const featuredPost = isFeaturedView && filtered.length > 0 ? filtered[0] : null;
   const gridPosts = isFeaturedView ? filtered.slice(1) : filtered;
 
@@ -133,6 +144,40 @@ export function ResourceList({
           )}
         </div>
 
+        {/* Language Filter */}
+        {hasMultipleLangs && (
+          <div className="flex items-center gap-2">
+            <span className="text-xs font-medium text-muted-foreground/60 uppercase tracking-wider mr-1">Language</span>
+            <Badge
+              variant="outline"
+              className={cn(
+                "cursor-pointer px-3 py-1 rounded-full transition-all text-xs font-medium border border-transparent",
+                selectedLang === null
+                  ? "bg-primary text-primary-foreground shadow-[0_0_15px_rgba(60,130,255,0.3)]"
+                  : "bg-secondary/40 text-muted-foreground border-white/5 hover:bg-secondary hover:text-foreground"
+              )}
+              onClick={() => setSelectedLang(null)}
+            >
+              All
+            </Badge>
+            {allLangs.map((lang) => (
+              <Badge
+                key={lang}
+                variant="outline"
+                className={cn(
+                  "cursor-pointer px-3 py-1 rounded-full transition-all text-xs font-medium border border-transparent",
+                  selectedLang === lang
+                    ? "bg-primary text-primary-foreground shadow-[0_0_15px_rgba(60,130,255,0.3)]"
+                    : "bg-secondary/40 text-muted-foreground border-white/5 hover:bg-secondary hover:text-foreground hover:border-white/10"
+                )}
+                onClick={() => setSelectedLang(lang)}
+              >
+                {LANG_LABELS[lang] ?? lang.toUpperCase()}
+              </Badge>
+            ))}
+          </div>
+        )}
+
         {/* Category Pills */}
         {allTags.length > 0 && (
           <div className="flex flex-wrap gap-2 items-center">
@@ -172,7 +217,7 @@ export function ResourceList({
           <Search className="h-10 w-10 text-muted-foreground/40 mb-4" />
           <p className="text-lg font-medium text-foreground">{emptyState ?? "No resources found."}</p>
           <p className="text-sm text-muted-foreground mt-1">Try adjusting your search or category filter.</p>
-          <button onClick={() => {setQuery(""); setSelectedTag(null);}} className="mt-6 text-primary hover:underline text-sm font-medium">Clear all filters</button>
+          <button onClick={() => {setQuery(""); setSelectedTag(null); setSelectedLang(null);}} className="mt-6 text-primary hover:underline text-sm font-medium">Clear all filters</button>
         </div>
       ) : (
         <div className="space-y-10">
@@ -200,6 +245,11 @@ export function ResourceList({
                     <Clock className="h-3.5 w-3.5" />
                     {formatDate(featuredPost.date)}
                   </span>
+                  {featuredPost.lang && featuredPost.lang !== "en" && (
+                    <span className="font-semibold bg-primary/15 text-primary px-2.5 py-1 rounded-md text-[10px] uppercase tracking-wider">
+                      {LANG_LABELS[featuredPost.lang] ?? featuredPost.lang.toUpperCase()}
+                    </span>
+                  )}
                   {featuredPost.author?.name && (
                     <span className="flex items-center gap-1.5">
                       <User className="h-3.5 w-3.5" />
@@ -254,9 +304,16 @@ export function ResourceList({
 
                   <CardContent className="flex flex-col flex-1 p-5 md:p-6">
                     <div className="mb-4 flex items-center justify-between text-xs text-muted-foreground/80">
-                      <span className="font-medium bg-secondary/50 px-2 py-1 rounded text-foreground/70">
-                        {formatDate(resource.date)}
-                      </span>
+                      <div className="flex items-center gap-2">
+                        <span className="font-medium bg-secondary/50 px-2 py-1 rounded text-foreground/70">
+                          {formatDate(resource.date)}
+                        </span>
+                        {resource.lang && resource.lang !== "en" && (
+                          <span className="font-semibold bg-primary/15 text-primary px-2 py-1 rounded text-[10px] uppercase tracking-wider">
+                            {LANG_LABELS[resource.lang] ?? resource.lang.toUpperCase()}
+                          </span>
+                        )}
+                      </div>
                     </div>
                     
                     <h3 className="line-clamp-2 text-xl font-bold leading-tight text-foreground transition-colors group-hover:text-primary mb-3">

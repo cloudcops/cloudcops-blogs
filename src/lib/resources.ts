@@ -18,6 +18,7 @@ export type Resource = {
   description?: string;
   date?: string;
   image?: string;
+  lang?: string;
   tags: string[];
   author?: Author;
   content: string;
@@ -57,6 +58,7 @@ function readResourceFile(
     description: data.description,
     date: data.date,
     image: data.image,
+    lang: data.lang ?? undefined,
     tags,
     author:
       typeof data.author === "object" && data.author
