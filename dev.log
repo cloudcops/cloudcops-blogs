@@ -1,0 +1,38 @@
+
+> cloudcops-resources@0.1.0 dev
+> next dev --turbopack
+
+[baseline-browser-mapping] The data in this module is over two months old.  To ensure accurate Baseline data, please update: `npm i baseline-browser-mapping@latest -D`
+ ⚠ Warning: Next.js inferred your workspace root, but it may not be correct.
+ We detected multiple lockfiles and selected the directory of /Users/kayiplar/package-lock.json as the root directory.
+ To silence this warning, set `turbopack.root` in your Next.js config, or consider removing one of the lockfiles if it's not needed.
+   See https://nextjs.org/docs/app/api-reference/config/next-config-js/turbopack#root-directory for more information.
+ Detected additional lockfiles: 
+   * /Users/kayiplar/git-projects/cloudcops/cloudcops-blogs-redesign/package-lock.json
+
+   ▲ Next.js 16.0.10 (Turbopack)
+   - Local:         http://localhost:3000
+   - Network:       http://10.0.0.141:3000
+
+ ✓ Starting...
+Attention: Next.js now collects completely anonymous telemetry regarding usage.
+This information is used to shape Next.js' roadmap and prioritize features.
+You can learn more, including how to opt-out if you'd not like to participate in this anonymous program, by visiting the following URL:
+https://nextjs.org/telemetry
+
+ ✓ Ready in 740ms
+ GET / 200 in 2.2s (compile: 1940ms, render: 217ms)
+ GET /apple-touch-icon.png 404 in 420ms (compile: 341ms, render: 79ms)
+ GET /apple-touch-icon-precomposed.png 404 in 424ms (compile: 367ms, render: 57ms)
+ GET /blogs/kubernetes-databases-vs-managed-services 200 in 1522ms (compile: 1459ms, render: 63ms)
+ GET /blogs 200 in 463ms (compile: 382ms, render: 81ms)
+ GET /blogs/crowdsec-waf-kubernetes-implementation 200 in 57ms (compile: 26ms, render: 31ms)
+ GET / 200 in 98ms (compile: 18ms, render: 80ms)
+ GET /blogs 200 in 31ms (compile: 9ms, render: 22ms)
+ ✓ Compiled in 308ms
+ GET /blogs 200 in 220ms (compile: 86ms, render: 135ms)
+ GET / 200 in 458ms (compile: 131ms, render: 327ms)
+ GET / 200 in 61ms (compile: 3ms, render: 57ms)
+ GET /blogs 200 in 46ms (compile: 1387µs, render: 45ms)
+ ✓ Compiled in 55ms
+ GET / 200 in 75ms (compile: 16ms, render: 60ms)

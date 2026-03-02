@@ -87,12 +87,12 @@ export function SiteHeader() {
           )}
         </button>
 
-        <div className="hidden md:flex w-[160px] justify-end">
+        <div className="hidden md:flex w-auto justify-end min-w-[180px]">
           <a
             href="https://calendly.com/salih-kayiplar"
             target="_blank"
             rel="noreferrer"
-            className="group relative inline-flex h-9 items-center justify-center gap-2 overflow-hidden rounded-full bg-primary/10 px-4 py-2 text-sm font-medium text-primary border border-primary/20 transition-all hover:bg-primary hover:text-primary-foreground hover:shadow-[0_0_20px_rgba(60,130,255,0.4)]"
+            className="group relative inline-flex h-9 whitespace-nowrap items-center justify-center gap-2 overflow-hidden rounded-full bg-primary/10 px-4 py-2 text-sm font-medium text-primary border border-primary/20 transition-all hover:bg-primary hover:!text-black hover:shadow-[0_0_20px_rgba(60,130,255,0.4)] no-underline"
           >
             <Calendar className="h-4 w-4" />
             <span>Book a Meeting</span>

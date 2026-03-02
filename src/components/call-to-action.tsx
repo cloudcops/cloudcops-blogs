@@ -13,12 +13,12 @@ export function CallToAction() {
         <p className="text-base md:text-lg text-muted-foreground">
           Let's discuss how CloudCops can help you build secure, scalable, and modern DevOps workflows. Schedule a free discovery call today.
         </p>
-        <div className="pt-4">
+        <div className="pt-4 flex justify-center">
           <a
             href="https://calendly.com/salih-kayiplar"
             target="_blank"
             rel="noreferrer"
-            className="inline-flex h-12 items-center justify-center gap-2 rounded-full bg-primary px-8 text-sm font-medium text-primary-foreground shadow-[0_0_20px_rgba(60,130,255,0.4)] transition-all hover:bg-primary/90 hover:scale-105 hover:shadow-[0_0_30px_rgba(60,130,255,0.6)]"
+            className="inline-flex h-12 items-center justify-center gap-2 rounded-full bg-primary px-8 text-sm font-medium !text-black shadow-[0_0_20px_rgba(60,130,255,0.4)] transition-all hover:bg-primary/90 hover:scale-105 hover:shadow-[0_0_30px_rgba(60,130,255,0.6)] no-underline"
           >
             <Calendar className="h-4 w-4" />
             <span>Book a Meeting with Salih</span>
