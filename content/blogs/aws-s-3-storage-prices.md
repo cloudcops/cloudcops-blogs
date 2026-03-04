@@ -7,6 +7,7 @@ author:
   name: "CloudCops"
   url: "https://www.linkedin.com/company/cloudcops/"
 image: "/images/aws-s-3-storage-prices-cover.png"
+lang: "de"
 ---
 Wer sich mit den **AWS S3 Storage Prices** beschäftigt, merkt schnell: Der Preis pro Gigabyte ist nur die Spitze des Eisbergs. Ihre Monatsrechnung ist ein Mix aus Speicherkosten, API-Anfragen, Datentransfers und Management-Features. Wer hier nur die Preisliste überfliegt, tappt garantiert in die Kostenfalle.
 
