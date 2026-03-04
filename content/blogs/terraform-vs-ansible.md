@@ -7,6 +7,7 @@ author:
   name: "CloudCops"
   url: "https://www.linkedin.com/company/cloudcops/"
 image: "/images/terraform-vs-ansible-cover.png"
+lang: "de"
 ---
 Man hört immer wieder die gleiche Frage: „Sollen wir Terraform oder Ansible verwenden?“ Die Antwort ist fast immer: Das ist die falsche Frage. Es ist, als würde man einen Architekten mit einem Innenarchitekten vergleichen. Beide sind unverzichtbar, aber sie arbeiten in unterschiedlichen Phasen und auf unterschiedlichen Ebenen.
 
