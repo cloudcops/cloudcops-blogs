@@ -257,7 +257,7 @@ Sobald die aktive Log-Datei 100 MB erreicht, wird sie archiviert und eine neue g
 
 > Man muss sich des Kompromisses aber bewusst sein: `docker logs` kann nur auf die Daten zugreifen, die durch diese Rotation noch vorhanden sind. Ältere, bereits gelöschte Log-Dateien sind über diesen Befehl nicht mehr erreichbar. Das ist der Preis für ein stabiles Host-System.
 
-Die steigende Adaption von Containern in deutschen Unternehmen unterstreicht, wie wichtig ein solches Management ist. Wenn im Jahr 2025 tatsächlich über **78 %** der Unternehmen in Deutschland [Docker für ihre Containerisierung einsetzen](http://www.andrerinas.de/docker-container-logs-anzeigen-vollstandige-anleitung-2025/), wird effizientes Log-Management zur Kernaufgabe. Techniken wie `docker log tail` sind dann nicht mehr nur Werkzeuge für schnelle Debugging-Sessions, sondern die Basis für umfassendere Strategien, wie sie etwa die CloudCops GmbH für ihre Kunden entwickelt.
+Die steigende Adaption von Containern in deutschen Unternehmen unterstreicht, wie wichtig ein solches Management ist. Wenn im Jahr 2025 tatsächlich über **78 %** der Unternehmen in Deutschland [Docker für ihre Containerisierung einsetzen](https://www.andrerinas.de/docker-container-logs-anzeigen-vollstandige-anleitung-2025/), wird effizientes Log-Management zur Kernaufgabe. Techniken wie `docker log tail` sind dann nicht mehr nur Werkzeuge für schnelle Debugging-Sessions, sondern die Basis für umfassendere Strategien, wie sie etwa die CloudCops GmbH für ihre Kunden entwickelt.
 
 ### Die Welt der Log-Driver entdecken
 
