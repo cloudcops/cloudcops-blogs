@@ -7,6 +7,7 @@ author:
   name: "CloudCops"
   url: "https://www.linkedin.com/company/cloudcops/"
 image: "/images/docker-log-tail-cover.png"
+lang: "de"
 ---
 Für jedes moderne Tech-Team ist das Live-Verfolgen von Logs kein Luxus, sondern eine absolute Notwendigkeit. Der schnellste Weg, um zu sehen, was in einem laufenden Container passiert, ist der Befehl **`docker logs --follow <container>`**, den die meisten von uns einfach **`docker log tail`** nennen. Dieser Befehl streamt **`stdout`** und **`stderr`** direkt in dein Terminal – essenziell für jedes Debugging in Echtzeit.
 
