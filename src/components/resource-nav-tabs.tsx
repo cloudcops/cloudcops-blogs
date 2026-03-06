@@ -16,7 +16,7 @@ export function ResourceNavTabs() {
   return (
     <nav className="flex items-center justify-center gap-2">
       {TABS.map((tab) => {
-        const isActive = pathname === tab.href || pathname.startsWith(tab.href + "/") || pathname.startsWith(tab.href + "?");
+        const isActive = pathname === tab.href || pathname.startsWith(tab.href + "/");
         return (
           <Link
             key={tab.href}

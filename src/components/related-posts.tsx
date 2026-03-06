@@ -55,7 +55,9 @@ export function RelatedPosts({ currentResource, allResources, variant = "cards" 
   if (variant === "compact") {
     return (
       <div className="mt-16 pt-12 border-t border-white/10">
-        <h2 className="text-xl md:text-2xl font-bold tracking-tight text-foreground mb-6">Related Snippets</h2>
+        <h2 className="text-xl md:text-2xl font-bold tracking-tight text-foreground mb-6">
+          Related {currentResource.type === "snippets" ? "Snippets" : currentResource.type === "case-studies" ? "Case Studies" : "Posts"}
+        </h2>
         <div className="divide-y divide-white/5 rounded-xl border border-white/5 bg-card/30">
           {related.map((resource) => (
             <Link

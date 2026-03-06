@@ -11,6 +11,7 @@ import { Check, Copy } from "lucide-react";
 function MermaidBlock({ chart }: { chart: string }) {
   const containerRef = useRef<HTMLDivElement>(null);
   const [svg, setSvg] = useState<string>("");
+  const [error, setError] = useState(false);
 
   useEffect(() => {
     let cancelled = false;
@@ -68,7 +69,7 @@ function MermaidBlock({ chart }: { chart: string }) {
             setSvg(scaled);
           }
         }).catch(() => {
-          if (!cancelled) setSvg("");
+          if (!cancelled) setError(true);
         });
       });
     }
@@ -77,6 +78,15 @@ function MermaidBlock({ chart }: { chart: string }) {
     const timer = setTimeout(renderChart, 50);
     return () => { cancelled = true; clearTimeout(timer); };
   }, [chart]);
+
+  if (error) {
+    return (
+      <div className="my-4 md:my-6 rounded-lg border border-destructive/30 bg-destructive/10 p-8 text-sm text-muted-foreground">
+        <p className="mb-2 font-medium text-destructive">Failed to render diagram</p>
+        <pre className="text-xs overflow-x-auto">{chart.trim()}</pre>
+      </div>
+    );
+  }
 
   if (!svg) {
     return (
