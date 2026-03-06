@@ -2,7 +2,7 @@ import fs from "node:fs";
 import path from "node:path";
 import matter from "gray-matter";
 
-export const RESOURCE_TYPES = ["blogs"] as const;
+export const RESOURCE_TYPES = ["blogs", "case-studies", "snippets"] as const;
 
 export type ResourceType = (typeof RESOURCE_TYPES)[number];
 
@@ -23,6 +23,10 @@ export type Resource = {
   author?: Author;
   content: string;
   missingRequired: string[];
+  company?: string;
+  industry?: string;
+  cloud?: string;
+  results?: string[];
 };
 
 const CONTENT_ROOT = path.join(process.cwd(), "content");
@@ -72,6 +76,10 @@ function readResourceFile(
         : undefined,
     content,
     missingRequired,
+    company: data.company ?? undefined,
+    industry: data.industry ?? undefined,
+    cloud: data.cloud ?? undefined,
+    results: ensureArray(data.results),
   };
 }
 

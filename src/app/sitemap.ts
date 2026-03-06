@@ -8,7 +8,15 @@ export default function sitemap(): MetadataRoute.Sitemap {
 
   // Get all blog posts
   const blogs = getResourcesByType("blogs");
-  const totalPages = Math.ceil(blogs.length / POSTS_PER_PAGE);
+  const totalBlogPages = Math.ceil(blogs.length / POSTS_PER_PAGE);
+
+  // Get all case studies
+  const caseStudies = getResourcesByType("case-studies");
+  const totalCaseStudyPages = Math.ceil(caseStudies.length / POSTS_PER_PAGE);
+
+  // Get all snippets
+  const snippets = getResourcesByType("snippets");
+  const totalSnippetPages = Math.ceil(snippets.length / POSTS_PER_PAGE);
 
   // Create sitemap entries for blog posts
   const blogEntries: MetadataRoute.Sitemap = blogs.map((blog) => ({
@@ -18,13 +26,57 @@ export default function sitemap(): MetadataRoute.Sitemap {
     priority: 0.8,
   }));
 
+  // Create sitemap entries for case studies
+  const caseStudyEntries: MetadataRoute.Sitemap = caseStudies.map((cs) => ({
+    url: `${baseUrl}/case-studies/${cs.slug}`,
+    lastModified: cs.date ? new Date(cs.date) : new Date(),
+    changeFrequency: "weekly",
+    priority: 0.8,
+  }));
+
+  // Create sitemap entries for snippets
+  const snippetEntries: MetadataRoute.Sitemap = snippets.map((snippet) => ({
+    url: `${baseUrl}/snippets/${snippet.slug}`,
+    lastModified: snippet.date ? new Date(snippet.date) : new Date(),
+    changeFrequency: "weekly",
+    priority: 0.7,
+  }));
+
   // Create sitemap entries for paginated blog listing pages
-  const paginatedPages: MetadataRoute.Sitemap = Array.from(
-    { length: totalPages },
+  const paginatedBlogPages: MetadataRoute.Sitemap = Array.from(
+    { length: totalBlogPages },
     (_, i) => {
       const page = i + 1;
       return {
         url: page === 1 ? `${baseUrl}/blogs` : `${baseUrl}/blogs?page=${page}`,
+        lastModified: new Date(),
+        changeFrequency: "daily",
+        priority: page === 1 ? 0.9 : 0.7,
+      };
+    }
+  );
+
+  // Create sitemap entries for paginated case study listing pages
+  const paginatedCaseStudyPages: MetadataRoute.Sitemap = Array.from(
+    { length: totalCaseStudyPages },
+    (_, i) => {
+      const page = i + 1;
+      return {
+        url: page === 1 ? `${baseUrl}/case-studies` : `${baseUrl}/case-studies?page=${page}`,
+        lastModified: new Date(),
+        changeFrequency: "daily",
+        priority: page === 1 ? 0.9 : 0.7,
+      };
+    }
+  );
+
+  // Create sitemap entries for paginated snippet listing pages
+  const paginatedSnippetPages: MetadataRoute.Sitemap = Array.from(
+    { length: totalSnippetPages },
+    (_, i) => {
+      const page = i + 1;
+      return {
+        url: page === 1 ? `${baseUrl}/snippets` : `${baseUrl}/snippets?page=${page}`,
         lastModified: new Date(),
         changeFrequency: "daily",
         priority: page === 1 ? 0.9 : 0.7,
@@ -42,5 +94,5 @@ export default function sitemap(): MetadataRoute.Sitemap {
     },
   ];
 
-  return [...staticPages, ...paginatedPages, ...blogEntries];
+  return [...staticPages, ...paginatedBlogPages, ...paginatedCaseStudyPages, ...paginatedSnippetPages, ...blogEntries, ...caseStudyEntries, ...snippetEntries];
 }

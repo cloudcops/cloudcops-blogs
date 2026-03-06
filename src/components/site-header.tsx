@@ -3,6 +3,7 @@
 import Link from "next/link";
 import Image from "next/image";
 import { useState } from "react";
+import { usePathname } from "next/navigation";
 import { Menu, X, Calendar } from "lucide-react";
 import { cn } from "@/lib/utils";
 
@@ -20,11 +21,12 @@ const primaryLinks: LinkConfig[] = [
     external: true,
   },
   { href: "https://cloudcops.com/en/about-us", label: "About Us", external: true },
-  { href: "/", label: "Blog" },
+  { href: "/", label: "Resources" },
 ];
 
 export function SiteHeader() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const pathname = usePathname();
 
   return (
     <header className="sticky top-0 z-50 border-b border-white/10 bg-gradient-to-r from-[#050915f2] via-[#081126f2] to-[#050a17f0] backdrop-blur">
@@ -47,7 +49,7 @@ export function SiteHeader() {
         {/* Desktop Navigation */}
         <nav className="hidden flex-1 items-center justify-center gap-6 text-sm font-medium tracking-wide text-muted-foreground/80 md:flex lg:gap-10">
           {primaryLinks.map((link) => {
-            const isActive = link.href === "/";
+            const isActive = !link.external && (link.href === "/" ? pathname === "/" || pathname.startsWith("/blogs") || pathname.startsWith("/case-studies") || pathname.startsWith("/snippets") : pathname.startsWith(link.href));
             const linkProps = link.external
               ? { target: "_blank", rel: "noreferrer" }
               : {};
@@ -105,7 +107,7 @@ export function SiteHeader() {
         <nav className="border-t border-white/10 bg-[#050915f2] md:hidden">
           <div className="flex flex-col space-y-1 px-4 py-4">
             {primaryLinks.map((link) => {
-              const isActive = link.href === "/";
+              const isActive = !link.external && (link.href === "/" ? pathname === "/" || pathname.startsWith("/blogs") || pathname.startsWith("/case-studies") || pathname.startsWith("/snippets") : pathname.startsWith(link.href));
               const linkProps = link.external
                 ? { target: "_blank", rel: "noreferrer" }
                 : {};

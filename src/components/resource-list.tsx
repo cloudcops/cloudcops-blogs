@@ -18,6 +18,7 @@ type ResourceListProps = {
   totalPages?: number;
   totalResults?: number;
   baseUrl?: string;
+  variant?: "cards" | "compact";
 };
 
 function formatDate(value?: string) {
@@ -54,6 +55,7 @@ export function ResourceList({
   totalPages = 1,
   totalResults,
   baseUrl = "/blogs",
+  variant = "cards",
 }: ResourceListProps) {
   const [query, setQuery] = useState("");
   const [selectedTag, setSelectedTag] = useState<string | null>(null);
@@ -94,7 +96,8 @@ export function ResourceList({
   const startResult = (currentPage - 1) * resources.length + 1;
   const endResult = startResult + filtered.length - 1;
 
-  const isFeaturedView = currentPage === 1 && !query.trim() && !selectedTag && !selectedLang;
+  const isCompact = variant === "compact";
+  const isFeaturedView = !isCompact && currentPage === 1 && !query.trim() && !selectedTag && !selectedLang;
   const featuredPost = isFeaturedView && filtered.length > 0 ? filtered[0] : null;
   const gridPosts = isFeaturedView ? filtered.slice(1) : filtered;
 
@@ -218,6 +221,40 @@ export function ResourceList({
           <p className="text-lg font-medium text-foreground">{emptyState ?? "No resources found."}</p>
           <p className="text-sm text-muted-foreground mt-1">Try adjusting your search or category filter.</p>
           <button onClick={() => {setQuery(""); setSelectedTag(null); setSelectedLang(null);}} className="mt-6 text-primary hover:underline text-sm font-medium">Clear all filters</button>
+        </div>
+      ) : isCompact ? (
+        <div className="divide-y divide-white/5 rounded-xl border border-white/5 bg-card/30">
+          {filtered.map((resource) => (
+            <Link
+              key={`${resource.type}-${resource.slug}`}
+              href={`/${resource.type}/${resource.slug}`}
+              className="group flex items-start gap-4 p-4 md:p-5 transition-colors hover:bg-white/[0.03] first:rounded-t-xl last:rounded-b-xl"
+            >
+              <div className="flex-1 min-w-0">
+                <h3 className="text-base font-semibold text-foreground group-hover:text-primary transition-colors leading-snug mb-1">
+                  {resource.title ?? "Untitled"}
+                </h3>
+                <p className="text-sm text-muted-foreground line-clamp-1 mb-2">
+                  {resource.description}
+                </p>
+                <div className="flex flex-wrap items-center gap-2">
+                  <span className="text-xs text-muted-foreground/60">
+                    {formatDate(resource.date)}
+                  </span>
+                  {resource.tags.slice(0, 3).map((tag) => (
+                    <Badge
+                      key={tag}
+                      variant="secondary"
+                      className="border-white/5 bg-white/5 text-[11px] text-muted-foreground px-2 py-0"
+                    >
+                      {tag}
+                    </Badge>
+                  ))}
+                </div>
+              </div>
+              <ArrowRight className="h-4 w-4 text-muted-foreground/40 group-hover:text-primary transition-colors mt-1 shrink-0" />
+            </Link>
+          ))}
         </div>
       ) : (
         <div className="space-y-10">

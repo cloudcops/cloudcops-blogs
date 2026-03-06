@@ -47,7 +47,13 @@ export function SiteFooter() {
                 <a href="https://cloudcops.com/en/about-us" className="text-sm text-muted-foreground transition-colors hover:text-primary" target="_blank" rel="noreferrer">About Us</a>
               </li>
               <li>
-                <Link href="/" className="text-sm text-muted-foreground transition-colors hover:text-primary">Blog &amp; Resources</Link>
+                <Link href="/blogs" className="text-sm text-muted-foreground transition-colors hover:text-primary">Blog</Link>
+              </li>
+              <li>
+                <Link href="/case-studies" className="text-sm text-muted-foreground transition-colors hover:text-primary">Case Studies</Link>
+              </li>
+              <li>
+                <Link href="/snippets" className="text-sm text-muted-foreground transition-colors hover:text-primary">Snippets</Link>
               </li>
               <li>
                 <a href="https://calendly.com/salih-kayiplar" className="text-sm text-muted-foreground transition-colors hover:text-primary" target="_blank" rel="noreferrer">Contact Us</a>
