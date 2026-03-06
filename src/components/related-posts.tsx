@@ -1,5 +1,6 @@
 import Link from "next/link";
 import Image from "next/image";
+import { ArrowRight } from "lucide-react";
 import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { cn } from "@/lib/utils";
@@ -32,7 +33,7 @@ function getGradient(slug: string) {
   return TECH_GRADIENTS[Math.abs(hash) % TECH_GRADIENTS.length];
 }
 
-export function RelatedPosts({ currentResource, allResources }: { currentResource: Resource, allResources: Resource[] }) {
+export function RelatedPosts({ currentResource, allResources, variant = "cards" }: { currentResource: Resource, allResources: Resource[], variant?: "cards" | "compact" }) {
   const related = allResources
     .filter(r => r.slug !== currentResource.slug)
     .map(r => {
@@ -50,6 +51,47 @@ export function RelatedPosts({ currentResource, allResources }: { currentResourc
     .map(r => r.resource);
 
   if (related.length === 0) return null;
+
+  if (variant === "compact") {
+    return (
+      <div className="mt-16 pt-12 border-t border-white/10">
+        <h2 className="text-xl md:text-2xl font-bold tracking-tight text-foreground mb-6">Related Snippets</h2>
+        <div className="divide-y divide-white/5 rounded-xl border border-white/5 bg-card/30">
+          {related.map((resource) => (
+            <Link
+              key={`${resource.type}-${resource.slug}`}
+              href={`/${resource.type}/${resource.slug}`}
+              className="group flex items-start gap-4 p-4 md:p-5 transition-colors hover:bg-white/[0.03] first:rounded-t-xl last:rounded-b-xl"
+            >
+              <div className="flex-1 min-w-0">
+                <h3 className="text-base font-semibold text-foreground group-hover:text-primary transition-colors leading-snug mb-1">
+                  {resource.title ?? "Untitled"}
+                </h3>
+                <p className="text-sm text-muted-foreground line-clamp-1 mb-2">
+                  {resource.description}
+                </p>
+                <div className="flex flex-wrap items-center gap-2">
+                  <span className="text-xs text-muted-foreground/60">
+                    {formatDate(resource.date)}
+                  </span>
+                  {resource.tags.slice(0, 3).map((tag) => (
+                    <Badge
+                      key={tag}
+                      variant="secondary"
+                      className="border-white/5 bg-white/5 text-[11px] text-muted-foreground px-2 py-0"
+                    >
+                      {tag}
+                    </Badge>
+                  ))}
+                </div>
+              </div>
+              <ArrowRight className="h-4 w-4 text-muted-foreground/40 group-hover:text-primary transition-colors mt-1 shrink-0" />
+            </Link>
+          ))}
+        </div>
+      </div>
+    );
+  }
 
   return (
     <div className="mt-24 pt-16 border-t border-white/10">

@@ -6,43 +6,42 @@ import type { Metadata } from "next";
 
 const POSTS_PER_PAGE = 12;
 
-type BlogsPageProps = {
+type SnippetsPageProps = {
   searchParams: Promise<{ page?: string }>;
 };
 
 export async function generateMetadata(
-  props: BlogsPageProps
+  props: SnippetsPageProps
 ): Promise<Metadata> {
   const searchParams = await props.searchParams;
   const page = Number(searchParams.page) || 1;
 
   if (page === 1) {
     return {
-      title: "Blogs",
-      description: "Browse CloudCops blog articles focused on DevOps excellence.",
+      title: "Snippets",
+      description: "Quick-reference snippets, gotchas, and battle-tested solutions for Kubernetes, cloud, and DevOps.",
     };
   }
 
   return {
-    title: `Blogs - Page ${page}`,
-    description: `Browse CloudCops blog articles focused on DevOps excellence. Page ${page}`,
+    title: `Snippets - Page ${page}`,
+    description: `Quick-reference snippets and gotchas for Kubernetes, cloud, and DevOps. Page ${page}`,
   };
 }
 
-export default async function BlogsPage(props: BlogsPageProps) {
+export default async function SnippetsPage(props: SnippetsPageProps) {
   const searchParams = await props.searchParams;
   const currentPage = Number(searchParams.page) || 1;
 
-  const allBlogs = getResourcesByType("blogs");
-  const totalBlogs = allBlogs.length;
-  const totalPages = Math.ceil(totalBlogs / POSTS_PER_PAGE);
+  const allSnippets = getResourcesByType("snippets");
+  const totalSnippets = allSnippets.length;
+  const totalPages = Math.ceil(totalSnippets / POSTS_PER_PAGE);
 
-  // Calculate pagination
   const startIndex = (currentPage - 1) * POSTS_PER_PAGE;
   const endIndex = startIndex + POSTS_PER_PAGE;
-  const paginatedBlogs = allBlogs.slice(startIndex, endIndex);
+  const paginatedSnippets = allSnippets.slice(startIndex, endIndex);
 
-  const affected = paginatedBlogs.filter(
+  const affected = paginatedSnippets.filter(
     (resource) => resource.missingRequired.length > 0,
   );
 
@@ -50,10 +49,10 @@ export default async function BlogsPage(props: BlogsPageProps) {
     <div className="space-y-10">
       <div className="flex flex-col items-center justify-center space-y-6 text-center py-10 md:py-16">
         <h1 className="bg-gradient-to-r from-white via-primary/90 to-primary/60 bg-clip-text pb-2 text-4xl font-extrabold tracking-tight text-transparent md:text-[3.5rem] md:leading-[1.1]">
-          Resources
+          Snippets
         </h1>
         <p className="max-w-2xl text-base text-muted-foreground md:text-lg">
-          Practical guidance, case studies, and insights for modern cloud and DevOps teams. Mastering Day 2 operations and modern infrastructure in the era of AI.
+          Quick-reference guides, gotchas, and battle-tested solutions from real-world Kubernetes, cloud, and DevOps operations.
         </p>
         <div className="pt-4 flex flex-col sm:flex-row items-center gap-4">
           <a
@@ -85,12 +84,13 @@ export default async function BlogsPage(props: BlogsPageProps) {
         </Alert>
       ) : null}
       <ResourceList
-        resources={paginatedBlogs}
-        emptyState="No blog posts yet."
+        resources={paginatedSnippets}
+        emptyState="No snippets yet."
         currentPage={currentPage}
         totalPages={totalPages}
-        totalResults={totalBlogs}
-        baseUrl="/blogs"
+        totalResults={totalSnippets}
+        baseUrl="/snippets"
+        variant="compact"
       />
     </div>
   );

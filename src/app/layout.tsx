@@ -16,22 +16,22 @@ const geistMono = Geist_Mono({
 
 export const metadata: Metadata = {
   title: {
-    default: "CloudCops Blog",
-    template: "%s | CloudCops Blog",
+    default: "CloudCops Resources",
+    template: "%s | CloudCops Resources",
   },
   description: "Technical blogs, tutorials, and resources about cloud computing, DevOps, and infrastructure management by CloudCops.",
   metadataBase: new URL("https://resources.cloudcops.com"),
   openGraph: {
-    title: "CloudCops Blog",
+    title: "CloudCops Resources",
     description: "Technical blogs, tutorials, and resources about cloud computing, DevOps, and infrastructure management.",
     url: "https://resources.cloudcops.com",
-    siteName: "CloudCops Blog",
+    siteName: "CloudCops Resources",
     locale: "en_US",
     type: "website",
   },
   twitter: {
     card: "summary_large_image",
-    title: "CloudCops Blog",
+    title: "CloudCops Resources",
     description: "Technical blogs, tutorials, and resources about cloud computing, DevOps, and infrastructure management.",
   },
   robots: {

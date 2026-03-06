@@ -96,7 +96,10 @@
   }
 
   pre {
-    @apply my-4 overflow-x-auto rounded-lg border border-white/10 bg-secondary/80 p-3 text-xs shadow-[0_18px_45px_rgba(8,10,26,0.45)] md:my-6 md:p-4 md:text-sm;
+    @apply my-4 rounded-lg border border-white/10 bg-secondary/80 p-3 text-xs shadow-[0_18px_45px_rgba(8,10,26,0.45)] md:my-6 md:p-4 md:text-sm;
+    white-space: pre-wrap;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
   }
 
   code {
@@ -118,5 +121,25 @@
 
   a {
     @apply text-primary underline-offset-4 transition hover:text-accent hover:underline;
+  }
+
+  table {
+    @apply my-4 w-full border-collapse overflow-hidden rounded-lg text-sm md:my-6 md:text-base;
+  }
+
+  thead {
+    @apply border-b border-white/10 bg-secondary/60;
+  }
+
+  th {
+    @apply px-3 py-2.5 text-left text-xs font-semibold uppercase tracking-wider text-foreground/90 md:px-4 md:py-3;
+  }
+
+  td {
+    @apply border-t border-white/5 px-3 py-2.5 text-sm text-muted-foreground md:px-4 md:py-3;
+  }
+
+  tr:hover td {
+    @apply bg-white/[0.02];
   }
 }
