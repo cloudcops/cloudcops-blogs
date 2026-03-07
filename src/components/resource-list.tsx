@@ -29,6 +29,7 @@ function formatDate(value?: string) {
     year: "numeric",
     month: "short",
     day: "numeric",
+    timeZone: "UTC",
   }).format(date);
 }
 
@@ -98,8 +99,15 @@ export function ResourceList({
 
   const isCompact = variant === "compact";
   const isFeaturedView = !isCompact && currentPage === 1 && !query.trim() && !selectedTag && !selectedLang;
-  const featuredPost = isFeaturedView && filtered.length > 0 ? filtered[0] : null;
-  const gridPosts = isFeaturedView ? filtered.slice(1) : filtered;
+  const featuredPost = useMemo(() => {
+    if (!isFeaturedView || filtered.length === 0) return null;
+    // Prefer English articles for the featured slot
+    return filtered.find((r) => (r.lang ?? "en") === "en") ?? filtered[0];
+  }, [isFeaturedView, filtered]);
+  const gridPosts = useMemo(() => {
+    if (!isFeaturedView || !featuredPost) return filtered;
+    return filtered.filter((r) => r !== featuredPost);
+  }, [isFeaturedView, featuredPost, filtered]);
 
   const CardArt = ({ slug, image }: { slug: string; image?: string }) => {
     if (image) {
