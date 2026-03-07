@@ -28,7 +28,7 @@ Once you've built an image, it needs a home. A **container registry** acts as a 
 
 Cloud providers offer excellent managed options like [Amazon Elastic Container Registry (ECR)](https://aws.amazon.com/ecr/) or [Google Artifact Registry](https://cloud.google.com/artifact-registry). Using a private registry is crucial for securing your intellectual property and controlling who can pull your production images.
 
-> Putting these fundamentals in place is more important than ever. Kubernetes is no longer an experiment; it's the standard. According to the CNCF, production deployments hit **80%** among organizations in 2024, a huge leap from 66% the year before. This isn't a niche technology anymore.
+> Putting these fundamentals in place is more important than ever. Kubernetes is no longer an experiment; it's the standard. According to the [CNCF Annual Survey 2024](https://www.cncf.io/reports/cncf-annual-survey-2024/), production deployments hit **80%** among organizations in 2024, a huge leap from 66% the year before. This isn't a niche technology anymore.
 
 ### Interacting with Your Cluster
 
@@ -142,7 +142,7 @@ A simple one-line change to a container image tag suddenly requires editing mult
 
 The two dominant players in this space are Helm and Kustomize. They both tackle configuration complexity, but they come from completely different philosophical camps. Picking the right one for your workflow when **deploying to Kubernetes** depends entirely on understanding that difference.
 
-### Helm The Package Manager for Kubernetes
+### Helm: The Package Manager for Kubernetes
 
 Think of [Helm](https://helm.sh/) as the `apt` or `yum` for the Kubernetes world. It bundles all your application's YAML manifests into a single, versioned package called a **chart**. Instead of running `kubectl apply` on a dozen individual files, you install, upgrade, or roll back your entire application as one cohesive unit.
 
@@ -155,7 +155,7 @@ This separation is what makes Helm so effective for managing different environme
 
 > A Helm chart is more than just a template; it's a distributable package. This makes it the standard for sharing and consuming off-the-shelf software in the Kubernetes ecosystem. It encapsulates not just the *what*, but also the *how* of an application's lifecycle.
 
-### Kustomize The Template-Free Customizer
+### Kustomize: The Template-Free Customizer
 
 [Kustomize](https://kustomize.io/) takes a completely different, "template-free" approach. Instead of using a templating language that generates YAML, it modifies standard YAML files through a system of overlays. You start with a common set of "base" manifests that define your application's core structure.
 
@@ -251,11 +251,11 @@ A really effective pattern we implement often is using Helm to install the platf
 
 ### Is the Ingress-NGINX Project Still a Good Choice?
 
-This is a critical and timely question. For years, [Ingress-NGINX](https://kubernetes.github.io/ingress-nginx/) was the default, battle-tested ingress controller for thousands of clusters. That's changing, and you need to be aware of it. The Kubernetes project has officially announced its **upcoming retirement**.
+This is a critical and timely question. For years, [Ingress-NGINX](https://kubernetes.github.io/ingress-nginx/) was the default, battle-tested ingress controller for thousands of clusters. That's changing, and you need to be aware of it. The Kubernetes project has [officially announced its upcoming retirement](https://kubernetes.io/blog/2025/11/11/ingress-nginx-retirement/).
 
-What this means is that as of March 2026, the community-supported `ingress-nginx` project will stop receiving updates. No new features, no bug fixes, and—most importantly—no **security patches**. Your existing installations will keep working, but they'll become a ticking security vulnerability.
+What this means is that as of March 2026, the community-supported `ingress-nginx` project will stop receiving updates. No new features, no bug fixes, and—most importantly—no **security patches**. Your existing installations will keep working, but they'll become a ticking security vulnerability. The [Kubernetes Steering and Security Response Committees](https://kubernetes.io/blog/2026/01/29/ingress-nginx-statement/) have reinforced this timeline and recommend immediate migration planning.
 
-The official path forward recommended by Kubernetes SIG Network is to migrate to the modern **Gateway API**. It's far more powerful, flexible, and role-oriented than the old Ingress API. If you have to stick with the Ingress API for now, you should start planning a migration to a different, actively maintained Ingress controller from a commercial vendor or another open-source project.
+The official path forward recommended by Kubernetes SIG Network is to migrate to the modern **[Gateway API](https://gateway-api.sigs.k8s.io/)**. It's far more powerful, flexible, and role-oriented than the old Ingress API. If you have to stick with the Ingress API for now, you should start planning a migration to a different, actively maintained Ingress controller from a commercial vendor or another open-source project.
 
 ---
 At **CloudCops GmbH**, we specialize in building and securing these robust, automated platforms. We turn everything-as-code into a reality, using GitOps, Terraform, and CNCF-standard tooling to make your infrastructure reproducible and your deployments fearless. Find out how we can help your team optimize your cloud-native journey at [https://cloudcops.com](https://cloudcops.com).
